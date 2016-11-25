@@ -2,6 +2,8 @@
 Thumbs.db
 ehthumbs.db
 Debug/
+Profiling/
+Release/
 # Folder config file
 Desktop.ini
 

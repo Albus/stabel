@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2016.11.25 17:36:10.212,=C:\Users\root.VPS\Documents\RAD Studio\Projects\Project1.res</Transaction>
+    <Transaction>2016.11.25 17:36:10.236,=C:\Users\root.VPS\Documents\RAD Studio\Projects\Unit2.cpp</Transaction>
+    <Transaction>2016.11.25 17:36:28.881,C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.cpp=C:\Users\root.VPS\Documents\RAD Studio\Projects\Unit2.cpp</Transaction>
+    <Transaction>2016.11.25 17:36:28.881,C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.h=C:\Users\root.VPS\Documents\RAD Studio\Projects\Unit2.h</Transaction>
+    <Transaction>2016.11.25 17:36:28.881,C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.dfm=C:\Users\root.VPS\Documents\RAD Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>2016.11.25 17:37:24.327,C:\VCL\stabel\Project.cbproj=C:\Users\root.VPS\Documents\RAD Studio\Projects\Project1.cbproj</Transaction>
+    <Transaction>2016.11.25 17:37:57.262,C:\VCL\stabel\form.dfm=C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.dfm</Transaction>
+    <Transaction>2016.11.25 17:37:57.262,C:\VCL\stabel\form.cpp=C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.cpp</Transaction>
+    <Transaction>2016.11.25 17:37:57.262,C:\VCL\stabel\form.h=C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.h</Transaction>
+    <Transaction>2016.11.25 17:38:26.096,C:\VCL\stabel\stabel.cbproj=C:\VCL\stabel\Project.cbproj</Transaction>
+  </Transactions>
+</BorlandProject>

@@ -28,16 +28,12 @@
 class TForm2 : public TForm
 {
 __published:	// IDE-managed Components
-	TIdTCPClient *IdTCPClient1;
 	TdxStatusBar *dxStatusBar1;
-	TIdAntiFreeze *IdAntiFreeze1;
 	TEdit *Shtrih;
 	TSpeedButton *SpeedButton1;
 	TLabel *Label1;
 	TButton *ButtonGo;
 	TButton *ButtonClose;
-	TPgConnection *Connection;
-	TPgQuery *Query;
 
 	void __fastcall FormActivate(TObject *Sender);
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);

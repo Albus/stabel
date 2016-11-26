@@ -186,21 +186,4 @@ object Form2: TForm2
     ExplicitTop = 354
     ExplicitWidth = 897
   end
-  object IdTCPClient1: TIdTCPClient
-    ConnectTimeout = 0
-    IPVersion = Id_IPv4
-    Port = 0
-    ReadTimeout = -1
-    Left = 8
-  end
-  object IdAntiFreeze1: TIdAntiFreeze
-    Left = 88
-  end
-  object Connection: TPgConnection
-    Left = 168
-  end
-  object Query: TPgQuery
-    Connection = Connection
-    Left = 240
-  end
 end

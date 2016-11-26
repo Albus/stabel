@@ -5,6 +5,7 @@
 
 #include "form.h"
 #include "ping.h"
+#include "pgquery.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "cxControls"
@@ -19,8 +20,9 @@
 TForm2 *Form2;
 ping *PingTread = new ping(true);
 
-System::UnicodeString DayMessage = "Вы работаете в ДНЕВНУЮ смену" ;
-System::UnicodeString NightMessage = "Вы работаете в НОЧНУЮ смену" ;
+System::UnicodeString DayMessage = "Вы работаете в\nДНЕВНУЮ смену" ;
+System::UnicodeString NightMessage = "Вы работаете в\nНОЧНУЮ смену" ;
+System::UnicodeString ConfigNotExistMessage = "НЕ МОГУ НАЙТИ ФАЙЛ КОНФИГУРАЦИИ БД.\n\n(для выхода нажмите ESCAPE)" ;
 
 //---------------------------------------------------------------------------
 __fastcall TForm2::TForm2(TComponent* Owner)
@@ -33,10 +35,7 @@ void __fastcall TForm2::FormActivate(TObject *Sender)
 {
 	PingTread->FreeOnTerminate = true;
 	PingTread->Start();
-	lIniFileName = ExtractFilePath(Application->ExeName) + "\\cfg\\aptrtlwh.cfg";
-	if(!FileExists(lIniFileName,true)){
 
-	}
 }
 //---------------------------------------------------------------------------
 
@@ -56,8 +55,16 @@ void __fastcall TForm2::SpeedButton1Click(TObject *Sender)
 
 void __fastcall TForm2::FormShow(TObject *Sender)
 {
-	Label1->Caption = DayMessage ;
-	SpeedButton1->Down = false ;
+	lIniFileName = ExtractFilePath(Application->ExeName) + "\\cfg\\aptrtlwh.cfg";
+	if(!FileExists(lIniFileName,true)){
+		this->Enabled = false;
+		Label1->Font->Color = clRed ;
+		Label1->Caption = ConfigNotExistMessage;
+	} else {
+		Label1->Caption = DayMessage ;
+		SpeedButton1->Down = false ;
+	}
+
 }
 //---------------------------------------------------------------------------
 

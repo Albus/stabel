@@ -4,6 +4,7 @@
 #pragma hdrstop
 
 #include "pgquery.h"
+
 #pragma package(smart_init)
 //---------------------------------------------------------------------------
 
@@ -52,24 +53,10 @@ void __fastcall PgQuery::Execute()
 //			AptNum->Text = PgQuery1->FieldByName("id_dep")->AsString;
 //			PgQuery1->Close();
 //			Connection->Disconnect();
-//
-//			ShtrihCode->Enabled = True; // ШК РАЗРЕШИТЬ
-//			AptNum->Enabled = False;// Номер аптеки ЗАПРЕТИТЬ
-//
-//			ShtrihCode->Color = FormGreen;
-//			AptNum->Color = FormGray;
+
 //
 //		}
-//		else  // Сервер аптеки НЕ доступен
-//		{
-//			ShtrihCode->Enabled = False;// ШК ЗАПРЕТИТЬ
-//			AptNum->Enabled = False;// Номер аптеки ЗАПРЕТИТЬ
-//
-//			ShtrihCode->Color = FormRed;
-//			AptNum->Color = FormGray;
-//
-//			ShowMessage("ОШИБКА: не доступен сервер аптеки !!!");
-//		}
+
 
 }
 //---------------------------------------------------------------------------

@@ -23,12 +23,13 @@
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
+			<OutputExt>exe</OutputExt>
 			<ILINK_LibraryPath>C:\Users\root.VPS\Documents\RAD Studio\Projects\;C:\VCL\stabel\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
 			<PackageImports>vclimg.bpi;vcl.bpi;vclx.bpi;dbrtl.bpi;Rave90VCL.bpi;bdertl.bpi;rtl.bpi;bcbie.bpi;xmlrtl.bpi;vclactnband.bpi;bcbsmp.bpi;VclSmp.bpi;svnui.bpi;svn.bpi;TeeUI.bpi;TeeDB.bpi;Tee.bpi;vcldb.bpi;vcldbx.bpi;vcltouch.bpi;dsnap.bpi;dsnapcon.bpi;vclib.bpi;ibxpress.bpi;adortl.bpi;IndyCore.bpi;IndySystem.bpi;IndyProtocols.bpi;inet.bpi;intrawebdb_110_150.bpi;Intraweb_110_150.bpi;vclie.bpi;websnap.bpi;webdsnap.bpi;inetdb.bpi;inetdbbde.bpi;inetdbxpress.bpi;soaprtl.bpi;vclribbon.bpi;dbexpress.bpi;DbxCommonDriver.bpi;DataSnapIndy10ServerTransport.bpi;DataSnapProviderClient.bpi;DbxClientDriver.bpi;DataSnapClient.bpi;dbxcds.bpi;DataSnapServer.bpi;AzureCloud.bpi;DBXInterBaseDriver.bpi;DBXMySQLDriver.bpi;DBXFirebirdDriver.bpi;DBXSybaseASEDriver.bpi;DBXSybaseASADriver.bpi;DBXOracleDriver.bpi;DBXMSSQLDriver.bpi;DBXInformixDriver.bpi;DBXDb2Driver.bpi;CodeSiteExpressVcl.bpi;dxCoreRS15.bpi;cxLibraryRS15.bpi;dxGDIPlusRS15.bpi;dxThemeRS15.bpi;dxHttpIndyRequestRS15.bpi;dxServerModeRS15.bpi;cxDataRS15.bpi;dxADOServerModeRS15.bpi;dxDBXServerModeRS15.bpi;dxmdsRS15.bpi;cxEditorsRS15.bpi;cxPageControlRS15.bpi;dxLayoutControlRS15.bpi;dxComnRS15.bpi;dxSpreadSheetRS15.bpi;dxDockingRS15.bpi;dxNavBarRS15.bpi;dxWizardControlRS15.bpi;cxGridRS15.bpi;cxExportRS15.bpi;cxPivotGridRS15.bpi;cxPivotGridChartRS15.bpi;cxPivotGridOLAPRS15.bpi;cxTreeListRS15.bpi;dxBarRS15.bpi;dxRibbonRS15.bpi;dxRibbonCustomizationFormRS15.bpi;dxTabbedMDIRS15.bpi;dxBarExtItemsRS15.bpi;dxBarExtDBItemsRS15.bpi;dxBarDBNavRS15.bpi;cxSchedulerRS15.bpi;cxSchedulerGridRS15.bpi;cxSchedulerTreeBrowserRS15.bpi;cxSchedulerRibbonStyleEventEditorRS15.bpi;cxVerticalGridRS15.bpi;dxdbtrRS15.bpi;dxtrmdRS15.bpi;dxSkinsCoreRS15.bpi;dxPScxPCProdRS15.bpi;dxPSCoreRS15.bpi;dxPSLnksRS15.bpi;dxPScxCommonRS15.bpi;dxPScxExtCommonRS15.bpi;dxPSTeeChartRS15.bpi;dxPSDBTeeChartRS15.bpi;dxPsPrVwAdvRS15.bpi;dxPSPrVwRibbonRS15.bpi;dxSpellCheckerRS15.bpi;dxFlowChartRS15.bpi;dxorgcRS15.bpi;dxdborRS15.bpi;dxTileControlRS15.bpi;dxGaugeControlRS15.bpi;dxMapControlRS15.bpi;dxRichEditControlRS15.bpi;cxTreeListdxBarPopupMenuRS15.bpi;dxSkinscxPCPainterRS15.bpi;dxSkinscxSchedulerPainterRS15.bpi;dxSkinsdxBarPainterRS15.bpi;dxSkinsdxDLPainterRS15.bpi;dxSkinsdxNavBarPainterRS15.bpi;dxSkinsdxRibbonPainterRS15.bpi;dxSkinBlackRS15.bpi;dxSkinBlueprintRS15.bpi;dxSkinBlueRS15.bpi;dxSkinCaramelRS15.bpi;dxSkinCoffeeRS15.bpi;dxSkinDarkRoomRS15.bpi;dxSkinDarkSideRS15.bpi;dxSkinDevExpressDarkStyleRS15.bpi;dxSkinDevExpressStyleRS15.bpi;dxSkinFoggyRS15.bpi;dxSkinGlassOceansRS15.bpi;dxSkinHighContrastRS15.bpi;dxSkiniMaginaryRS15.bpi;dxSkinLilianRS15.bpi;dxSkinLiquidSkyRS15.bpi;dxSkinLondonLiquidSkyRS15.bpi;dxSkinMcSkinRS15.bpi;dxSkinMetropolisDarkRS15.bpi;dxSkinMetropolisRS15.bpi;dxSkinMoneyTwinsRS15.bpi;dxSkinOffice2007BlackRS15.bpi;dxSkinOffice2007BlueRS15.bpi;dxSkinOffice2007GreenRS15.bpi;dxSkinOffice2007PinkRS15.bpi;dxSkinOffice2007SilverRS15.bpi;dxSkinOffice2010BlackRS15.bpi;dxSkinOffice2010BlueRS15.bpi;dxSkinOffice2010SilverRS15.bpi;dxSkinOffice2013DarkGrayRS15.bpi;dxSkinOffice2013LightGrayRS15.bpi;dxSkinOffice2013WhiteRS15.bpi;dxSkinPumpkinRS15.bpi;dxSkinSevenClassicRS15.bpi;dxSkinSevenRS15.bpi;dxSkinSharpPlusRS15.bpi;dxSkinSharpRS15.bpi;dxSkinSilverRS15.bpi;dxSkinSpringTimeRS15.bpi;dxSkinStardustRS15.bpi;dxSkinSummer2008RS15.bpi;dxSkinTheAsphaltWorldRS15.bpi;dxSkinValentineRS15.bpi;dxSkinVS2010RS15.bpi;dxSkinWhiteprintRS15.bpi;dxSkinXmas2008BlueRS15.bpi;dxSkinOffice2016ColorfulRS15.bpi;dxSkinOffice2016DarkRS15.bpi;dxSkinVisualStudio2013BlueRS15.bpi;dxSkinVisualStudio2013DarkRS15.bpi;dxSkinVisualStudio2013LightRS15.bpi;dxPSdxLCLnkRS15.bpi;dxPScxGridLnkRS15.bpi;dxPScxPivotGridLnkRS15.bpi;dxPScxSchedulerLnkRS15.bpi;dxPScxTLLnkRS15.bpi;dxPScxVGridLnkRS15.bpi;dxPSdxOCLnkRS15.bpi;dxPSdxDBOCLnkRS15.bpi;dxPSdxDBTVLnkRS15.bpi;dxPSdxFCLnkRS15.bpi;dxPSdxSpreadSheetLnkRS15.bpi;dxPSdxGaugeControlLnkRS15.bpi;dxPSRichEditControlLnkRS15.bpi;dacvcl150.bpi;dac150.bpi;crcontrols150.bpi;pgdacvcl150.bpi;pgdac150.bpi;unidacvcl150.bpi;unidac150.bpi;vquery150.bpi;fs15.bpi;frx15.bpi;fsDB15.bpi;frxDB15.bpi;fsBDE15.bpi;frxBDE15.bpi;fsADO15.bpi;frxADO15.bpi;fsIBX15.bpi;frxIBX15.bpi;frxDBX15.bpi;frxe15.bpi;fsTee15.bpi;frxTee15.bpi;dclZipForged15.bpi;vclZipForged15.bpi;nrcommd15.bpi;dclFormSave.bpi;Abbrevia.bpi;MSScriptControl.bpi</PackageImports>
-			<LinkPackageImports>rtl.bpi;vcl.bpi</LinkPackageImports>
+			<LinkPackageImports>rtl.bpi;vcl.bpi;IndyCore.bpi;IndySystem.bpi;xmlrtl.bpi;vclactnband.bpi;vclx.bpi;cxLibraryRS15.bpi;dxGDIPlusRS15.bpi;dxCoreRS15.bpi;dxThemeRS15.bpi;dxBarRS15.bpi;cxEditorsRS15.bpi;cxDataRS15.bpi;dbrtl.bpi;vclimg.bpi;vcldb.bpi;dxComnRS15.bpi;soaprtl.bpi;inet.bpi;dsnap.bpi;dac150.bpi;pgdac150.bpi</LinkPackageImports>
 			<Multithreaded>true</Multithreaded>
 			<IncludePath>C:\Users\root.VPS\Documents\RAD Studio\Projects\;C:\VCL\stabel\;$(IncludePath)</IncludePath>
-			<AllPackageLibs>rtl.lib;vcl.lib</AllPackageLibs>
+			<AllPackageLibs>rtl.lib;vcl.lib;IndyCore.lib;IndySystem.lib;xmlrtl.lib;vclactnband.lib;vclx.lib;cxLibraryRS15.lib;dxGDIPlusRS15.lib;dxCoreRS15.lib;dxThemeRS15.lib;dxBarRS15.lib;cxEditorsRS15.lib;cxDataRS15.lib;dbrtl.lib;vclimg.lib;vcldb.lib;dxComnRS15.lib;soaprtl.lib;inet.lib;dsnap.lib;dac150.lib;pgdac150.lib</AllPackageLibs>
 			<ProjectType>CppVCLApplication</ProjectType>
 			<_TCHARMapping>wchar_t</_TCHARMapping>
 			<DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
@@ -70,11 +71,22 @@
 				<DependentOn>form.h</DependentOn>
 				<BuildOrder>2</BuildOrder>
 			</CppCompile>
+			<CppCompile Include="pgquery.cpp">
+				<DependentOn>pgquery.h</DependentOn>
+				<BuildOrder>5</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="ping.cpp">
+				<DependentOn>ping.h</DependentOn>
+				<BuildOrder>3</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="soap.cpp">
+				<DependentOn>soap.h</DependentOn>
+				<BuildOrder>4</BuildOrder>
+			</CppCompile>
 			<CppCompile Include="stabel.cpp">
 				<BuildOrder>0</BuildOrder>
 			</CppCompile>
 			<ResFiles Include="stabel.res">
-				<ModuleName>stabel.res</ModuleName>
 				<BuildOrder>1</BuildOrder>
 			</ResFiles>
 			<FormResources Include="form.dfm"/>

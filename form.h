@@ -36,13 +36,13 @@ __published:	// IDE-managed Components
 	TButton *ButtonClose;
 	TPgConnection *Connection;
 	TPgQuery *PgQuery;
-	TIdTCPClient *IdTCPClient1;
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall SpeedButton1Click(TObject *Sender);
 	void __fastcall ButtonCloseClick(TObject *Sender);
 	void __fastcall ShtrihChange(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations
+	UnicodeString __fastcall GetAppVer();
 public:		// User declarations
 	__fastcall TForm2(TComponent* Owner);
 	UnicodeString lIniFileName;

@@ -80,16 +80,35 @@ object Form2: TForm2
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
         PanelStyle.Alignment = taCenter
+        PanelStyle.Color = clBtnFace
+        PanelStyle.Font.Charset = DEFAULT_CHARSET
+        PanelStyle.Font.Color = clRed
+        PanelStyle.Font.Height = -11
+        PanelStyle.Font.Name = 'Tahoma'
+        PanelStyle.Font.Style = []
+        PanelStyle.ParentFont = False
         Text = 'VPN'
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
         PanelStyle.Alignment = taCenter
+        PanelStyle.Font.Charset = DEFAULT_CHARSET
+        PanelStyle.Font.Color = clRed
+        PanelStyle.Font.Height = -11
+        PanelStyle.Font.Name = 'Tahoma'
+        PanelStyle.Font.Style = []
+        PanelStyle.ParentFont = False
         Text = 'WWW'
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
         PanelStyle.Alignment = taCenter
+        PanelStyle.Font.Charset = DEFAULT_CHARSET
+        PanelStyle.Font.Color = clRed
+        PanelStyle.Font.Height = -11
+        PanelStyle.Font.Name = 'Tahoma'
+        PanelStyle.Font.Style = []
+        PanelStyle.ParentFont = False
         Text = '----'
       end
       item
@@ -187,13 +206,5 @@ object Form2: TForm2
   object PgQuery: TPgQuery
     Connection = Connection
     Left = 944
-  end
-  object IdTCPClient1: TIdTCPClient
-    ConnectTimeout = 0
-    IPVersion = Id_IPv4
-    Port = 0
-    ReadTimeout = -1
-    Left = 856
-    Top = 8
   end
 end

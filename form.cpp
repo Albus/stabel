@@ -12,6 +12,9 @@
 #pragma link "cxLookAndFeelPainters"
 #pragma link "cxLookAndFeels"
 #pragma link "dxStatusBar"
+#pragma link "DBAccess"
+#pragma link "MemDS"
+#pragma link "PgAccess"
 #pragma resource "*.dfm"
 TForm2 *Form2;
 ping *PingTread = new ping(true);
@@ -30,6 +33,10 @@ void __fastcall TForm2::FormActivate(TObject *Sender)
 {
 	PingTread->FreeOnTerminate = true;
 	PingTread->Start();
+	lIniFileName = ExtractFilePath(Application->ExeName) + "\\cfg\\aptrtlwh.cfg";
+	if(!FileExists(lIniFileName,true)){
+
+	}
 }
 //---------------------------------------------------------------------------
 
@@ -58,6 +65,14 @@ void __fastcall TForm2::FormShow(TObject *Sender)
 void __fastcall TForm2::ButtonCloseClick(TObject *Sender)
 {
 	Close();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::ShtrihChange(TObject *Sender)
+{
+	if (Shtrih->GetTextLen()==13) {
+
+	}
 }
 //---------------------------------------------------------------------------
 

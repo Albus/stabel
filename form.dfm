@@ -132,6 +132,7 @@ object Form2: TForm2
     ParentFont = False
     TabOrder = 1
     TextHint = #1064#1058#1056#1048#1061'-'#1050#1054#1044
+    OnChange = ShtrihChange
     ExplicitLeft = 20
     ExplicitTop = 20
     ExplicitWidth = 1057
@@ -190,11 +191,16 @@ object Form2: TForm2
     IPVersion = Id_IPv4
     Port = 0
     ReadTimeout = -1
-    Left = 88
-    Top = 72
+    Left = 8
   end
   object IdAntiFreeze1: TIdAntiFreeze
-    Left = 152
-    Top = 72
+    Left = 88
+  end
+  object Connection: TPgConnection
+    Left = 168
+  end
+  object Query: TPgQuery
+    Connection = Connection
+    Left = 240
   end
 end

@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+﻿//---------------------------------------------------------------------------
 
 #include <vcl.h>
 #pragma hdrstop
@@ -15,6 +15,9 @@
 #pragma resource "*.dfm"
 TForm2 *Form2;
 ping *PingTread = new ping(true);
+
+System::UnicodeString DayMessage = "Вы работаете в ДНЕВНУЮ смену" ;
+System::UnicodeString NightMessage = "Вы работаете в НОЧНУЮ смену" ;
 
 //---------------------------------------------------------------------------
 __fastcall TForm2::TForm2(TComponent* Owner)
@@ -36,3 +39,25 @@ void __fastcall TForm2::FormCloseQuery(TObject *Sender, bool &CanClose)
 }
 
 //---------------------------------------------------------------------------
+
+
+void __fastcall TForm2::SpeedButton1Click(TObject *Sender)
+{
+	Label1->Caption = !SpeedButton1->Down ? DayMessage : NightMessage ;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::FormShow(TObject *Sender)
+{
+	Label1->Caption = DayMessage ;
+	SpeedButton1->Down = false ;
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm2::ButtonCloseClick(TObject *Sender)
+{
+	Close();
+}
+//---------------------------------------------------------------------------
+

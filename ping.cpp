@@ -13,11 +13,22 @@ TIdTCPClient *IdTCPClientVPN = new TIdTCPClient(NULL);
 TIdTCPClient *IdTCPClientWWW = new TIdTCPClient(NULL);
 TIdAntiFreeze *IdAntiFreezePing;
 
+void __fastcall ping::IdTCPClientConnected(TObject *Sender)
+{
+	if(Sender==IdTCPClientVPN) Form2->dxStatusBar1->Panels->Items[0]->PanelStyle->Font->Color = clGreen;
+	if(Sender==IdTCPClientWWW) Form2->dxStatusBar1->Panels->Items[1]->PanelStyle->Font->Color = clGreen;
+}
+
+void __fastcall ping::IdTCPClientDisConnected(TObject *Sender)
+{
+	if(Sender==IdTCPClientVPN) Form2->dxStatusBar1->Panels->Items[0]->PanelStyle->Font->Color = clRed;
+	if(Sender==IdTCPClientWWW) Form2->dxStatusBar1->Panels->Items[1]->PanelStyle->Font->Color = clRed;
+}
 
 void __fastcall ping::UpdateCaption()
 {
-	Form2->dxStatusBar1->Panels->Items[0]->Text = ( IdTCPClientWWW->Connected() ? "+WWW" : "-WWW" );
-	Form2->dxStatusBar1->Panels->Items[1]->Text = ( IdTCPClientVPN->Connected() ? "+VPN" : "-VPN" );
+//	Form2->dxStatusBar1->Panels->Items[0]->Text = ( IdTCPClientWWW->Connected() ? "+WWW" : "-WWW" );
+//	Form2->dxStatusBar1->Panels->Items[1]->Text = ( IdTCPClientVPN->Connected() ? "+VPN" : "-VPN" );
 }
 //---------------------------------------------------------------------------
 
@@ -35,16 +46,21 @@ __fastcall ping::ping(bool CreateSuspended)
 //---------------------------------------------------------------------------
 void __fastcall ping::Execute()
 {
+	IdTCPClientVPN->OnConnected = &IdTCPClientConnected;
+	IdTCPClientWWW->OnConnected = &IdTCPClientConnected;
+	IdTCPClientVPN->OnDisconnected = &IdTCPClientDisConnected;
+	IdTCPClientWWW->OnDisconnected = &IdTCPClientDisConnected;
+
 	this->FreeOnTerminate = true;
 	NameThreadForDebugging("ping");
 	//---- Place thread code here ----
 	while (Terminated == false){
 		if (!IdTCPClientVPN->Connected()) { try { IdTCPClientVPN->Connect(); } catch (...) {	}}
-		Synchronize(&UpdateCaption);
+		//Synchronize(&UpdateCaption);
 		if (!IdTCPClientWWW->Connected()) { try { IdTCPClientWWW->Connect(); } catch (...) {	}}
 		//http://94.228.240.244:8081/jex/ws/selftabel.1cws?wsdl
 		Sleep(1000);
-		Synchronize(&UpdateCaption);
+		//Synchronize(&UpdateCaption);
 	}
 }
 void __fastcall ping::OnTerminate()

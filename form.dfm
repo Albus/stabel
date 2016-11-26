@@ -19,9 +19,8 @@ object Form2: TForm2
   Position = poDesigned
   PrintScale = poPrintToFit
   WindowState = wsMaximized
-  OnActivate = FormActivate
   OnCloseQuery = FormCloseQuery
-  OnShow = FormShow
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object SpeedButton1: TSpeedButton
@@ -70,7 +69,6 @@ object Form2: TForm2
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    ExplicitTop = 274
     ExplicitWidth = 106
   end
   object dxStatusBar1: TdxStatusBar
@@ -81,12 +79,18 @@ object Form2: TForm2
     Panels = <
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        PanelStyle.Alignment = taCenter
+        Text = 'VPN'
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        PanelStyle.Alignment = taCenter
+        Text = 'WWW'
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        PanelStyle.Alignment = taCenter
+        Text = '----'
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
@@ -102,8 +106,6 @@ object Form2: TForm2
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
-    ExplicitLeft = 74
-    ExplicitTop = 743
   end
   object Shtrih: TEdit
     AlignWithMargins = True
@@ -133,9 +135,6 @@ object Form2: TForm2
     TabOrder = 1
     TextHint = #1064#1058#1056#1048#1061'-'#1050#1054#1044
     OnChange = ShtrihChange
-    ExplicitLeft = 20
-    ExplicitTop = 20
-    ExplicitWidth = 1057
   end
   object ButtonGo: TButton
     AlignWithMargins = True
@@ -154,8 +153,6 @@ object Form2: TForm2
     Default = True
     Enabled = False
     TabOrder = 2
-    ExplicitTop = 393
-    ExplicitWidth = 100
   end
   object ButtonClose: TButton
     AlignWithMargins = True
@@ -175,15 +172,28 @@ object Form2: TForm2
     Constraints.MinHeight = 100
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -64
+    Font.Height = -53
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
     TabOrder = 3
     TabStop = False
     OnClick = ButtonCloseClick
-    ExplicitLeft = 92
-    ExplicitTop = 354
-    ExplicitWidth = 897
+  end
+  object Connection: TPgConnection
+    LoginPrompt = False
+    Left = 1032
+  end
+  object PgQuery: TPgQuery
+    Connection = Connection
+    Left = 944
+  end
+  object IdTCPClient1: TIdTCPClient
+    ConnectTimeout = 0
+    IPVersion = Id_IPv4
+    Port = 0
+    ReadTimeout = -1
+    Left = 856
+    Top = 8
   end
 end

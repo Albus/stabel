@@ -34,19 +34,19 @@ __published:	// IDE-managed Components
 	TLabel *Label1;
 	TButton *ButtonGo;
 	TButton *ButtonClose;
-
-	void __fastcall FormActivate(TObject *Sender);
+	TPgConnection *Connection;
+	TPgQuery *PgQuery;
+	TIdTCPClient *IdTCPClient1;
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall SpeedButton1Click(TObject *Sender);
-	void __fastcall FormShow(TObject *Sender);
 	void __fastcall ButtonCloseClick(TObject *Sender);
 	void __fastcall ShtrihChange(TObject *Sender);
+	void __fastcall FormCreate(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TForm2(TComponent* Owner);
 	UnicodeString lIniFileName;
-
-
+	void __fastcall FatalError(System::UnicodeString Message = "FATAL ERROR\npress ESCAPE");
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm2 *Form2;

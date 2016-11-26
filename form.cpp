@@ -5,7 +5,7 @@
 
 #include "form.h"
 #include "ping.h"
-#include "pgquery.h"
+
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "cxControls"
@@ -20,21 +20,30 @@
 TForm2 *Form2;
 ping *PingTread = new ping(true);
 
-System::UnicodeString DayMessage = "Вы работаете в\nДНЕВНУЮ смену" ;
-System::UnicodeString NightMessage = "Вы работаете в\nНОЧНУЮ смену" ;
-System::UnicodeString ConfigNotExistMessage = "НЕ МОГУ НАЙТИ ФАЙЛ КОНФИГУРАЦИИ БД.\n\n(для выхода нажмите ESCAPE)" ;
+
+System::UnicodeString DayMessage =
+"Вы работаете в\nДНЕВНУЮ смену" ;
+
+System::UnicodeString NightMessage =
+"Вы работаете в\nНОЧНУЮ смену" ;
+
+UnicodeString ConfigNotExistMessage =
+"НЕ МОГУ НАЙТИ ФАЙЛ КОНФИГУРАЦИИ.\n\n(для выхода нажмите ESCAPE)" ;
+
+UnicodeString ConfigCanNotFindDBSectionMessage =
+"НЕ МОГУ НАЙТИ СЕКЦИЮ [DB] В ФАЙЛЕ КОНФИГУРАЦИИ.\n\n(для выхода нажмите ESCAPE)" ;
+
+UnicodeString PgCanNotConnect =
+"НЕ МОГУ ПОДКЛЮЧИТЬСЯ К БАЗЕ ДАННЫХ\n\n(для выхода нажмите ESCAPE)";
+
+
+
+
 
 //---------------------------------------------------------------------------
 __fastcall TForm2::TForm2(TComponent* Owner)
 	: TForm(Owner)
 {
-
-}
-//---------------------------------------------------------------------------
-void __fastcall TForm2::FormActivate(TObject *Sender)
-{
-	PingTread->FreeOnTerminate = true;
-	PingTread->Start();
 
 }
 //---------------------------------------------------------------------------
@@ -45,7 +54,12 @@ void __fastcall TForm2::FormCloseQuery(TObject *Sender, bool &CanClose)
 }
 
 //---------------------------------------------------------------------------
-
+void __fastcall TForm2::FatalError(UnicodeString Message)
+{
+	this->Enabled = false;
+	Label1->Font->Color = clRed ;
+	Label1->Caption = Message;
+}
 
 void __fastcall TForm2::SpeedButton1Click(TObject *Sender)
 {
@@ -53,20 +67,6 @@ void __fastcall TForm2::SpeedButton1Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm2::FormShow(TObject *Sender)
-{
-	lIniFileName = ExtractFilePath(Application->ExeName) + "\\cfg\\aptrtlwh.cfg";
-	if(!FileExists(lIniFileName,true)){
-		this->Enabled = false;
-		Label1->Font->Color = clRed ;
-		Label1->Caption = ConfigNotExistMessage;
-	} else {
-		Label1->Caption = DayMessage ;
-		SpeedButton1->Down = false ;
-	}
-
-}
-//---------------------------------------------------------------------------
 
 
 void __fastcall TForm2::ButtonCloseClick(TObject *Sender)
@@ -82,4 +82,57 @@ void __fastcall TForm2::ShtrihChange(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TForm2::FormCreate(TObject *Sender)
+{
+	PingTread->FreeOnTerminate = true;
+
+	TIniFile *lIni = NULL;
+	UnicodeString lIniFileName = ExtractFilePath(Application->ExeName) + "\\cfg\\aptrtlwh.cfg";
+	if(!FileExists(lIniFileName,true)){
+		FatalError(ConfigNotExistMessage);
+		return;
+	} else lIni = new TIniFile(lIniFileName);
+	if (!lIni->SectionExists("DB")) {
+		FatalError(ConfigCanNotFindDBSectionMessage);
+		return;
+	}
+	Connection->Server	 = lIni->ReadString("DB", "server", "1.1.1.1");
+	Connection->Port     = lIni->ReadInteger("DB", "port", 5432);
+	Connection->Database = lIni->ReadString("DB", "database", "blabla");
+	Connection->Username = lIni->ReadString("DB", "username", "blabla");
+	Connection->Password = lIni->ReadString("DB", "password", "blabla");
+	lIni->FreeInstance();
+
+	connect:
+	try { Connection->Connect();
+	} catch (...) {
+		FatalError(PgCanNotConnect);
+		return;
+	}
+	if(Connection->Connected) // Сервер аптеки достуен
+	{
+		PgQuery->SQL->Add("select id_dep from conf.const limit 1;");PgQuery->Open();
+		UnicodeString AptNum = PgQuery->FieldByName("id_dep")->AsString;
+		try {
+			StrToInt(AptNum);
+			dxStatusBar1->Panels->Items[2]->PanelStyle->Font->Color = clGreen;
+			dxStatusBar1->Panels->Items[2]->Text = AptNum;
+		} catch (...) {
+			dxStatusBar1->Panels->Items[2]->PanelStyle->Font->Color = clRed;
+		}
+
+
+		PgQuery->Close();Connection->Disconnect();
+
+		PgQuery->FreeInstance();Connection->FreeInstance();
+	} else goto connect;
+
+
+	PingTread->Start();
+	Label1->Caption = DayMessage ;
+	SpeedButton1->Down = false ;
+}
+//---------------------------------------------------------------------------
+
 

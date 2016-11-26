@@ -8,6 +8,8 @@
 class ping : public TThread
 {
 private:
+	void __fastcall IdTCPClientConnected(TObject *Sender);
+	void __fastcall IdTCPClientDisConnected(TObject *Sender);
 protected:
 	void __fastcall Execute();
 	void __fastcall OnTerminate();

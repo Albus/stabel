@@ -138,14 +138,14 @@ object Form2: TForm2
   end
   object ButtonGo: TButton
     AlignWithMargins = True
-    Left = 100
+    Left = 50
     Top = 443
-    Width = 897
+    Width = 997
     Height = 100
     Cursor = crHandPoint
-    Margins.Left = 50
+    Margins.Left = 0
     Margins.Top = 50
-    Margins.Right = 50
+    Margins.Right = 0
     Margins.Bottom = 0
     Align = alTop
     Constraints.MaxHeight = 100
@@ -153,20 +153,19 @@ object Form2: TForm2
     Default = True
     Enabled = False
     TabOrder = 2
-    ExplicitLeft = 50
     ExplicitTop = 393
     ExplicitWidth = 100
   end
   object ButtonClose: TButton
     AlignWithMargins = True
-    Left = 100
+    Left = 50
     Top = 596
-    Width = 897
+    Width = 997
     Height = 100
     Cursor = crHandPoint
-    Margins.Left = 50
-    Margins.Top = 50
-    Margins.Right = 50
+    Margins.Left = 0
+    Margins.Top = 0
+    Margins.Right = 0
     Margins.Bottom = 50
     Align = alBottom
     Cancel = True
@@ -184,6 +183,7 @@ object Form2: TForm2
     OnClick = ButtonCloseClick
     ExplicitLeft = 92
     ExplicitTop = 354
+    ExplicitWidth = 897
   end
   object IdTCPClient1: TIdTCPClient
     ConnectTimeout = 0

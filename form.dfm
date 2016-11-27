@@ -71,6 +71,26 @@ object Form2: TForm2
     ParentFont = False
     ExplicitWidth = 106
   end
+  object LabelResult: TLabel
+    AlignWithMargins = True
+    Left = 50
+    Top = 593
+    Width = 997
+    Height = 25
+    Margins.Left = 0
+    Margins.Top = 50
+    Margins.Right = 0
+    Margins.Bottom = 0
+    Align = alTop
+    Alignment = taCenter
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    ExplicitWidth = 7
+  end
   object dxStatusBar1: TdxStatusBar
     Left = 50
     Top = 746
@@ -113,6 +133,15 @@ object Form2: TForm2
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        PanelStyle.Alignment = taCenter
+        PanelStyle.Font.Charset = DEFAULT_CHARSET
+        PanelStyle.Font.Color = clWindowText
+        PanelStyle.Font.Height = -9
+        PanelStyle.Font.Name = 'Tahoma'
+        PanelStyle.Font.Style = []
+        PanelStyle.ParentFont = False
+        MinWidth = 150
+        Width = 150
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
@@ -171,6 +200,12 @@ object Form2: TForm2
     Constraints.MinHeight = 100
     Default = True
     Enabled = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -64
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 2
   end
   object ButtonClose: TButton

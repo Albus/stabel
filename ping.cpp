@@ -13,16 +13,26 @@ TIdTCPClient *IdTCPClientVPN = new TIdTCPClient(NULL);
 TIdTCPClient *IdTCPClientWWW = new TIdTCPClient(NULL);
 TIdAntiFreeze *IdAntiFreezePing;
 
+void __fastcall ping::ChooseConnection()
+{
+	 if (IdTCPClientVPN->Connected()||IdTCPClientWWW->Connected()){
+		Form2->dxStatusBar1->Panels->Items[3]->Text = IdTCPClientVPN->Connected() ?
+			IdTCPClientVPN->Host+":"+IdTCPClientVPN->Port : IdTCPClientWWW->Host+":"+IdTCPClientWWW->Port ;
+	 } else Form2->dxStatusBar1->Panels->Items[3]->Text = "";
+}
+
 void __fastcall ping::IdTCPClientConnected(TObject *Sender)
 {
 	if(Sender==IdTCPClientVPN) Form2->dxStatusBar1->Panels->Items[0]->PanelStyle->Font->Color = clGreen;
 	if(Sender==IdTCPClientWWW) Form2->dxStatusBar1->Panels->Items[1]->PanelStyle->Font->Color = clGreen;
+	Synchronize(&ChooseConnection);
 }
 
 void __fastcall ping::IdTCPClientDisConnected(TObject *Sender)
 {
 	if(Sender==IdTCPClientVPN) Form2->dxStatusBar1->Panels->Items[0]->PanelStyle->Font->Color = clRed;
 	if(Sender==IdTCPClientWWW) Form2->dxStatusBar1->Panels->Items[1]->PanelStyle->Font->Color = clRed;
+	Synchronize(&ChooseConnection);
 }
 
 void __fastcall ping::UpdateCaption()

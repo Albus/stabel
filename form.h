@@ -36,6 +36,7 @@ __published:	// IDE-managed Components
 	TButton *ButtonClose;
 	TPgConnection *Connection;
 	TPgQuery *PgQuery;
+	TLabel *LabelResult;
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall SpeedButton1Click(TObject *Sender);
 	void __fastcall ButtonCloseClick(TObject *Sender);

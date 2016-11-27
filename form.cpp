@@ -4,6 +4,8 @@
 #include "form.h"
 #include "ping.h"
 
+#include "soap.h"
+
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "cxControls"
@@ -17,6 +19,8 @@
 #pragma resource "*.dfm"
 TForm2 *Form2;
 ping *PingTread = new ping(true);
+_di_selftabelPortType *SOAP;
+INT64 AllowedAction;
 
 System::UnicodeString DayMessage = "Вы работаете в\nДНЕВНУЮ смену";
 
@@ -60,7 +64,40 @@ void __fastcall TForm2::ButtonCloseClick(TObject *Sender) {
 
 void __fastcall TForm2::ShtrihChange(TObject *Sender) {
 	if (Shtrih->GetTextLen() == 13) {
-
+		Shtrih->Enabled = false;
+		Shtrih->Repaint();
+		if (dxStatusBar1->Panels->Items[3]->Text.Length() > 0) {
+			_di_selftabelPortType SOAP =
+				GetselftabelPortType(false,
+				"http://" + dxStatusBar1->Panels->Items[3]->Text +
+				"/jex/ws/selftabel.1cws", NULL);
+			AllowedAction =
+				SOAP->GetAllowedAction
+				(dxStatusBar1->Panels->Items[2]->Text.ToInt(), Shtrih->Text);
+			switch (AllowedAction) {
+			case 0:
+				LabelResult->Caption =
+					"Вы не можете открыть или закрыть смену\nСервер не принял ваш штрих-код";
+				ButtonGo->Caption = "";
+				ButtonGo->Enabled = false;
+				break;
+			case 1:
+				LabelResult->Caption = "Вы можете открыть смену";
+				ButtonGo->Caption = "ОТКРЫТЬ СМЕНУ";
+				ButtonGo->Enabled = true;
+				break;
+			case 2:
+				LabelResult->Caption = "Вы можете закрыть смену";
+				ButtonGo->Caption = "ЗАКРЫТЬ СМЕНУ";
+				ButtonGo->Enabled = true;
+				break;
+			case 3:
+				LabelResult->Caption = "Сервер выдал не верный результат №3";
+				ButtonGo->Caption = "";
+				ButtonGo->Enabled = false;
+				break;
+			}
+		}
 	}
 }
 // ---------------------------------------------------------------------------
@@ -112,9 +149,6 @@ connect:
 
 		PgQuery->Close();
 		Connection->Disconnect();
-
-		PgQuery->FreeInstance();
-		Connection->FreeInstance();
 	}
 	else
 		goto connect;
@@ -124,4 +158,3 @@ connect:
 	SpeedButton1->Down = false;
 
 }
-

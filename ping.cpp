@@ -16,30 +16,26 @@ TIdAntiFreeze *IdAntiFreezePing;
 void __fastcall ping::ChooseConnection()
 {
 	 if (IdTCPClientVPN->Connected()||IdTCPClientWWW->Connected()){
-		Form2->dxStatusBar1->Panels->Items[3]->Text = IdTCPClientVPN->Connected() ?
+		SelfTabel->dxStatusBar1->Panels->Items[3]->Text = IdTCPClientVPN->Connected() ?
 			IdTCPClientVPN->Host+":"+IdTCPClientVPN->Port : IdTCPClientWWW->Host+":"+IdTCPClientWWW->Port ;
-	 } else Form2->dxStatusBar1->Panels->Items[3]->Text = "";
+	 } else SelfTabel->dxStatusBar1->Panels->Items[3]->Text = "";
 }
 
 void __fastcall ping::IdTCPClientConnected(TObject *Sender)
 {
-	if(Sender==IdTCPClientVPN) Form2->dxStatusBar1->Panels->Items[0]->PanelStyle->Font->Color = clGreen;
-	if(Sender==IdTCPClientWWW) Form2->dxStatusBar1->Panels->Items[1]->PanelStyle->Font->Color = clGreen;
+	if(Sender==IdTCPClientVPN) SelfTabel->dxStatusBar1->Panels->Items[0]->PanelStyle->Font->Color = clGreen;
+	if(Sender==IdTCPClientWWW) SelfTabel->dxStatusBar1->Panels->Items[1]->PanelStyle->Font->Color = clGreen;
 	Synchronize(&ChooseConnection);
 }
 
 void __fastcall ping::IdTCPClientDisConnected(TObject *Sender)
 {
-	if(Sender==IdTCPClientVPN) Form2->dxStatusBar1->Panels->Items[0]->PanelStyle->Font->Color = clRed;
-	if(Sender==IdTCPClientWWW) Form2->dxStatusBar1->Panels->Items[1]->PanelStyle->Font->Color = clRed;
+	if(Sender==IdTCPClientVPN) SelfTabel->dxStatusBar1->Panels->Items[0]->PanelStyle->Font->Color = clRed;
+	if(Sender==IdTCPClientWWW) SelfTabel->dxStatusBar1->Panels->Items[1]->PanelStyle->Font->Color = clRed;
 	Synchronize(&ChooseConnection);
 }
 
-void __fastcall ping::UpdateCaption()
-{
-//	Form2->dxStatusBar1->Panels->Items[0]->Text = ( IdTCPClientWWW->Connected() ? "+WWW" : "-WWW" );
-//	Form2->dxStatusBar1->Panels->Items[1]->Text = ( IdTCPClientVPN->Connected() ? "+VPN" : "-VPN" );
-}
+
 //---------------------------------------------------------------------------
 
 __fastcall ping::ping(bool CreateSuspended)

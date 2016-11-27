@@ -24,8 +24,9 @@
 #include "MemDS.hpp"
 #include "PgAccess.hpp"
 #include <DB.hpp>
+#include "soap.h"
 //---------------------------------------------------------------------------
-class TForm2 : public TForm
+class TSelfTabel : public TForm
 {
 __published:	// IDE-managed Components
 	TdxStatusBar *dxStatusBar1;
@@ -42,14 +43,17 @@ __published:	// IDE-managed Components
 	void __fastcall ButtonCloseClick(TObject *Sender);
 	void __fastcall ShtrihChange(TObject *Sender);
 	void __fastcall FormCreate(TObject *Sender);
+	void __fastcall ButtonGoClick(TObject *Sender);
 private:	// User declarations
 	UnicodeString __fastcall GetAppVer();
+	_di_selftabelPortType _fastcall SOAP();
 public:		// User declarations
-	__fastcall TForm2(TComponent* Owner);
+	__fastcall TSelfTabel(TComponent* Owner);
 	UnicodeString lIniFileName;
 	void __fastcall FatalError(System::UnicodeString Message = "FATAL ERROR\npress ESCAPE");
+	void __fastcall Status(UnicodeString text = "");
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm2 *Form2;
+extern PACKAGE TSelfTabel *SelfTabel;
 //---------------------------------------------------------------------------
 #endif

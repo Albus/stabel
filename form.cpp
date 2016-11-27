@@ -4,8 +4,6 @@
 #include "form.h"
 #include "ping.h"
 
-#include "soap.h"
-
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "cxControls"
@@ -17,9 +15,9 @@
 #pragma link "MemDS"
 #pragma link "PgAccess"
 #pragma resource "*.dfm"
-TForm2 *Form2;
+TSelfTabel *SelfTabel;
 ping *PingTread = new ping(true);
-_di_selftabelPortType *SOAP;
+
 INT64 AllowedAction;
 
 System::UnicodeString DayMessage = "Вы работаете в\nДНЕВНУЮ смену";
@@ -36,44 +34,52 @@ UnicodeString PgCanNotConnect =
 	"НЕ МОГУ ПОДКЛЮЧИТЬСЯ К БАЗЕ ДАННЫХ\n\n(для выхода нажмите ESCAPE)";
 
 // ---------------------------------------------------------------------------
-__fastcall TForm2::TForm2(TComponent* Owner) : TForm(Owner) {
+__fastcall TSelfTabel::TSelfTabel(TComponent* Owner) : TForm(Owner) {
 
 }
 // ---------------------------------------------------------------------------
 
-void __fastcall TForm2::FormCloseQuery(TObject *Sender, bool &CanClose) {
+void __fastcall TSelfTabel::FormCloseQuery(TObject *Sender, bool &CanClose) {
 	PingTread->Terminate();
 }
 
 // ---------------------------------------------------------------------------
-void __fastcall TForm2::FatalError(UnicodeString Message) {
+void __fastcall TSelfTabel::FatalError(UnicodeString Message) {
 	this->Enabled = false;
 	Label1->Font->Color = clRed;
 	Label1->Caption = Message;
 }
 
-void __fastcall TForm2::SpeedButton1Click(TObject *Sender) {
+void __fastcall TSelfTabel::SpeedButton1Click(TObject *Sender) {
 	Label1->Caption = !SpeedButton1->Down ? DayMessage : NightMessage;
 }
 // ---------------------------------------------------------------------------
 
-void __fastcall TForm2::ButtonCloseClick(TObject *Sender) {
+void __fastcall TSelfTabel::ButtonCloseClick(TObject *Sender) {
 	Close();
 }
 // ---------------------------------------------------------------------------
 
-void __fastcall TForm2::ShtrihChange(TObject *Sender) {
+void __fastcall TSelfTabel::Status(UnicodeString text) {
+	dxStatusBar1->Panels->Items[5]->Text = text;
+}
+
+_di_selftabelPortType _fastcall TSelfTabel::SOAP() {
+	return (GetselftabelPortType(false,
+		"http://" + dxStatusBar1->Panels->Items[3]->Text +
+		"/jex/ws/selftabel.1cws", NULL));
+}
+
+void __fastcall TSelfTabel::ShtrihChange(TObject *Sender) {
 	if (Shtrih->GetTextLen() == 13) {
 		Shtrih->Enabled = false;
 		Shtrih->Repaint();
 		if (dxStatusBar1->Panels->Items[3]->Text.Length() > 0) {
-			_di_selftabelPortType SOAP =
-				GetselftabelPortType(false,
-				"http://" + dxStatusBar1->Panels->Items[3]->Text +
-				"/jex/ws/selftabel.1cws", NULL);
+			Status("Выполняем запрос к серверу .....");
 			AllowedAction =
-				SOAP->GetAllowedAction
+				SOAP()->GetAllowedAction
 				(dxStatusBar1->Panels->Items[2]->Text.ToInt(), Shtrih->Text);
+			Status("Запрос к серверу завершен");
 			switch (AllowedAction) {
 			case 0:
 				LabelResult->Caption =
@@ -102,9 +108,8 @@ void __fastcall TForm2::ShtrihChange(TObject *Sender) {
 }
 // ---------------------------------------------------------------------------
 
-void __fastcall TForm2::FormCreate(TObject *Sender) {
+void __fastcall TSelfTabel::FormCreate(TObject *Sender) {
 	PingTread->FreeOnTerminate = true;
-
 	TIniFile *lIni = NULL;
 	UnicodeString lIniFileName = ExtractFilePath(Application->ExeName) +
 		"\\cfg\\aptrtlwh.cfg";
@@ -158,3 +163,23 @@ connect:
 	SpeedButton1->Down = false;
 
 }
+
+void __fastcall TSelfTabel::ButtonGoClick(TObject *Sender) {
+	switch (AllowedAction) {
+	case 1: // открытие смены
+		Status("Запрос к серверу на открытие смены .....");
+		LabelResult->Caption =
+			SOAP()->CheckIn(dxStatusBar1->Panels->Items[2]->Text.ToInt(),
+			Shtrih->Text, SpeedButton1->Down);
+		Status("Запрос к серверу завершен");
+		break; // конец: открытие смены
+	case 2: // закрытие смены
+		Status("Запрос к серверу на закрытие смены .....");
+		LabelResult->Caption =
+			SOAP()->CheckOut(dxStatusBar1->Panels->Items[2]->Text.ToInt(),
+			Shtrih->Text, SpeedButton1->Down);
+		Status("Запрос к серверу завершен");
+		break; // конец: закрытие смены
+	}
+}
+// ---------------------------------------------------------------------------

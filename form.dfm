@@ -1,9 +1,9 @@
-object Form2: TForm2
+object SelfTabel: TSelfTabel
   Left = 0
   Top = 0
   BorderStyle = bsNone
-  Caption = 'Form2'
-  ClientHeight = 816
+  Caption = 'SelfTabel'
+  ClientHeight = 906
   ClientWidth = 1097
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -93,7 +93,7 @@ object Form2: TForm2
   end
   object dxStatusBar1: TdxStatusBar
     Left = 50
-    Top = 746
+    Top = 836
     Width = 997
     Height = 20
     Panels = <
@@ -154,6 +154,7 @@ object Form2: TForm2
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
+    ExplicitTop = 746
   end
   object Shtrih: TEdit
     AlignWithMargins = True
@@ -207,11 +208,12 @@ object Form2: TForm2
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    OnClick = ButtonGoClick
   end
   object ButtonClose: TButton
     AlignWithMargins = True
     Left = 50
-    Top = 596
+    Top = 686
     Width = 997
     Height = 100
     Cursor = crHandPoint
@@ -221,7 +223,7 @@ object Form2: TForm2
     Margins.Bottom = 50
     Align = alBottom
     Cancel = True
-    Caption = #1047#1040#1050#1056#1067#1058#1068' '#1055#1056#1054#1043#1056#1040#1052#1052#1059
+    Caption = #1047#1040#1050#1056#1067#1058#1068' '#1055#1056#1054#1043#1056#1040#1052#1052#1059' (Escape)'
     Constraints.MaxHeight = 100
     Constraints.MinHeight = 100
     Font.Charset = DEFAULT_CHARSET
@@ -233,6 +235,7 @@ object Form2: TForm2
     TabOrder = 3
     TabStop = False
     OnClick = ButtonCloseClick
+    ExplicitTop = 596
   end
   object Connection: TPgConnection
     LoginPrompt = False

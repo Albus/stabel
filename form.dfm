@@ -157,7 +157,6 @@ object SelfTabel: TSelfTabel
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
-    ExplicitTop = 746
   end
   object Shtrih: TEdit
     AlignWithMargins = True
@@ -226,7 +225,7 @@ object SelfTabel: TSelfTabel
     Margins.Bottom = 0
     Align = alBottom
     Cancel = True
-    Caption = #1047#1040#1050#1056#1067#1058#1068' '#1055#1056#1054#1043#1056#1040#1052#1052#1059' (Escape)'
+    Caption = #1047#1040#1050#1056#1067#1058#1068' '#1055#1056#1054#1043#1056#1040#1052#1052#1059' [Esc]'
     Constraints.MaxHeight = 50
     Constraints.MinHeight = 50
     Font.Charset = DEFAULT_CHARSET
@@ -238,7 +237,6 @@ object SelfTabel: TSelfTabel
     TabOrder = 3
     TabStop = False
     OnClick = ButtonCloseClick
-    ExplicitTop = 686
   end
   object Connection: TPgConnection
     LoginPrompt = False

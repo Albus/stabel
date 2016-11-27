@@ -69,6 +69,7 @@ extern PACKAGE TSelfTabel *SelfTabel;
 #define WWW dxStatusBar1->Panels->Items[1]
 #define aNum dxStatusBar1->Panels->Items[2]
 #define AP dxStatusBar1->Panels->Items[3]
+#define StaText dxStatusBar1->Panels->Items[5]
 
 #define ColorVPN VPN->PanelStyle->Font->Color
 #define ColorWWW WWW->PanelStyle->Font->Color

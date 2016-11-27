@@ -62,7 +62,8 @@ void __fastcall TSelfTabel::ButtonCloseClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TSelfTabel::Status(UnicodeString text) {
-	dxStatusBar1->Panels->Items[5]->Text = text;
+	StaText->Text = text;
+	dxStatusBar1->Repaint();
 }
 
 _di_selftabelPortType _fastcall TSelfTabel::SOAP() {

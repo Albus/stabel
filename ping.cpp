@@ -21,6 +21,7 @@ void __fastcall ping::ChooseConnection() {
 	}
 	else
 		SelfTabel->AP->Text = "";
+	SelfTabel->dxStatusBar1->Repaint();
 }
 
 void __fastcall ping::IdTCPClientConnected(TObject *Sender) {

@@ -26,7 +26,7 @@
 
 
 //---------------------------------------------------------------------------
-USEFORM("form.cpp", Form2);
+USEFORM("form.cpp", SelfTabel);
 //---------------------------------------------------------------------------
 WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -34,7 +34,8 @@ WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
-		Application->CreateForm(__classid(TForm2), &Form2);
+		Application->Title = "Табель учета рабочего времени";
+		Application->CreateForm(__classid(TSelfTabel), &SelfTabel);
 		Application->Run();
 	}
 	catch (Exception &exception)

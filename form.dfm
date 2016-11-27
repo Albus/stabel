@@ -1,6 +1,10 @@
 object SelfTabel: TSelfTabel
   Left = 0
   Top = 0
+  Margins.Left = 0
+  Margins.Top = 0
+  Margins.Right = 0
+  Margins.Bottom = 0
   BorderStyle = bsNone
   Caption = 'SelfTabel'
   ClientHeight = 906
@@ -14,7 +18,6 @@ object SelfTabel: TSelfTabel
   Padding.Left = 50
   Padding.Top = 50
   Padding.Right = 50
-  Padding.Bottom = 50
   OldCreateOrder = False
   Position = poDesigned
   PrintScale = poPrintToFit
@@ -93,7 +96,7 @@ object SelfTabel: TSelfTabel
   end
   object dxStatusBar1: TdxStatusBar
     Left = 50
-    Top = 836
+    Top = 886
     Width = 997
     Height = 20
     Panels = <
@@ -213,29 +216,29 @@ object SelfTabel: TSelfTabel
   object ButtonClose: TButton
     AlignWithMargins = True
     Left = 50
-    Top = 686
+    Top = 836
     Width = 997
-    Height = 100
+    Height = 50
     Cursor = crHandPoint
     Margins.Left = 0
     Margins.Top = 0
     Margins.Right = 0
-    Margins.Bottom = 50
+    Margins.Bottom = 0
     Align = alBottom
     Cancel = True
     Caption = #1047#1040#1050#1056#1067#1058#1068' '#1055#1056#1054#1043#1056#1040#1052#1052#1059' (Escape)'
-    Constraints.MaxHeight = 100
-    Constraints.MinHeight = 100
+    Constraints.MaxHeight = 50
+    Constraints.MinHeight = 50
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -53
+    Font.Height = -32
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
     TabOrder = 3
     TabStop = False
     OnClick = ButtonCloseClick
-    ExplicitTop = 596
+    ExplicitTop = 686
   end
   object Connection: TPgConnection
     LoginPrompt = False

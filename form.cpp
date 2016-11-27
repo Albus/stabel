@@ -15,14 +15,15 @@
 #pragma link "MemDS"
 #pragma link "PgAccess"
 #pragma resource "*.dfm"
+
 TSelfTabel *SelfTabel;
 ping *PingTread = new ping(true);
 
 INT64 AllowedAction;
 
-System::UnicodeString DayMessage = "Вы работаете в\nДНЕВНУЮ смену";
+UnicodeString DayMessage = "Вы работаете в\nДНЕВНУЮ смену";
 
-System::UnicodeString NightMessage = "Вы работаете в\nНОЧНУЮ смену";
+UnicodeString NightMessage = "Вы работаете в\nНОЧНУЮ смену";
 
 UnicodeString ConfigNotExistMessage =
 	"НЕ МОГУ НАЙТИ ФАЙЛ КОНФИГУРАЦИИ.\n\n(для выхода нажмите ESCAPE)";
@@ -66,19 +67,17 @@ void __fastcall TSelfTabel::Status(UnicodeString text) {
 
 _di_selftabelPortType _fastcall TSelfTabel::SOAP() {
 	return (GetselftabelPortType(false,
-		"http://" + dxStatusBar1->Panels->Items[3]->Text +
-		"/jex/ws/selftabel.1cws", NULL));
+		"http://" + AP->Text + "/jex/ws/selftabel.1cws", NULL));
 }
 
 void __fastcall TSelfTabel::ShtrihChange(TObject *Sender) {
 	if (Shtrih->GetTextLen() == 13) {
 		Shtrih->Enabled = false;
 		Shtrih->Repaint();
-		if (dxStatusBar1->Panels->Items[3]->Text.Length() > 0) {
+		if (AP->Text.Length() > 0) {
 			Status("Выполняем запрос к серверу .....");
-			AllowedAction =
-				SOAP()->GetAllowedAction
-				(dxStatusBar1->Panels->Items[2]->Text.ToInt(), Shtrih->Text);
+			AllowedAction = SOAP()->GetAllowedAction(aNum->Text.ToInt(),
+				Shtrih->Text);
 			Status("Запрос к серверу завершен");
 			switch (AllowedAction) {
 			case 0:
@@ -145,11 +144,11 @@ connect:
 		UnicodeString AptNum = PgQuery->FieldByName("id_dep")->AsString;
 		try {
 			StrToInt(AptNum);
-			dxStatusBar1->Panels->Items[2]->PanelStyle->Font->Color = clGreen;
-			dxStatusBar1->Panels->Items[2]->Text = AptNum;
+			ColorANum = clGreen;
+			aNum->Text = AptNum;
 		}
 		catch (...) {
-			dxStatusBar1->Panels->Items[2]->PanelStyle->Font->Color = clRed;
+			ColorANum = clRed;
 		}
 
 		PgQuery->Close();

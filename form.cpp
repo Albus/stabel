@@ -21,9 +21,11 @@ ping *PingTread = new ping(true);
 
 INT64 AllowedAction;
 
-UnicodeString DayMessage = "Вы работаете в\nДНЕВНУЮ смену";
+UnicodeString DayMessage = "Вы работаете в ДНЕВНУЮ смену";
 
-UnicodeString NightMessage = "Вы работаете в\nНОЧНУЮ смену";
+UnicodeString AllDayMessage = "Вы работаете в СУТОЧНУЮ смену";
+
+UnicodeString NightMessage = "Вы работаете в НОЧНУЮ смену";
 
 UnicodeString ConfigNotExistMessage =
 	"НЕ МОГУ НАЙТИ ФАЙЛ КОНФИГУРАЦИИ.\n\n(для выхода нажмите ESCAPE)";
@@ -51,9 +53,6 @@ void __fastcall TSelfTabel::FatalError(UnicodeString Message) {
 	Label1->Caption = Message;
 }
 
-void __fastcall TSelfTabel::SpeedButton1Click(TObject *Sender) {
-	Label1->Caption = !SpeedButton1->Down ? DayMessage : NightMessage;
-}
 // ---------------------------------------------------------------------------
 
 void __fastcall TSelfTabel::ButtonCloseClick(TObject *Sender) {
@@ -71,39 +70,43 @@ _di_selftabelPortType _fastcall TSelfTabel::SOAP() {
 		"http://" + AP->Text + "/jex/ws/selftabel.1cws", NULL));
 }
 
+void __fastcall TSelfTabel::GetAllowedActions(){
+	if (AP->Text.Length() > 0) {
+		Status("Выполняем запрос к серверу .....");
+		AllowedAction = SOAP()->GetAllowedAction(aNum->Text.ToInt(),
+			Shtrih->Text);
+		Status("Запрос к серверу завершен");
+		switch (AllowedAction) {
+		case 0:
+			LabelResult->Caption =
+				"Вы не можете открыть или закрыть смену\nСервер не принял ваш штрих-код";
+			ButtonGo->Caption = "";
+			ButtonGo->Enabled = false;
+			break;
+		case 1:
+			LabelResult->Caption = "Вы можете открыть смену";
+			ButtonGo->Caption = "ОТКРЫТЬ СМЕНУ";
+			ButtonGo->Enabled = true;
+			break;
+		case 2:
+			LabelResult->Caption = "Вы можете закрыть смену";
+			ButtonGo->Caption = "ЗАКРЫТЬ СМЕНУ";
+			ButtonGo->Enabled = true;
+			break;
+		case 3:
+			LabelResult->Caption = "Сервер выдал не верный результат №3";
+			ButtonGo->Caption = "";
+			ButtonGo->Enabled = false;
+			break;
+		}
+	}
+}
+
 void __fastcall TSelfTabel::ShtrihChange(TObject *Sender) {
 	if (Shtrih->GetTextLen() == 13) {
+		grpOperationMode->Enabled = true;
 		Shtrih->Enabled = false;
-		Shtrih->Repaint();
-		if (AP->Text.Length() > 0) {
-			Status("Выполняем запрос к серверу .....");
-			AllowedAction = SOAP()->GetAllowedAction(aNum->Text.ToInt(),
-				Shtrih->Text);
-			Status("Запрос к серверу завершен");
-			switch (AllowedAction) {
-			case 0:
-				LabelResult->Caption =
-					"Вы не можете открыть или закрыть смену\nСервер не принял ваш штрих-код";
-				ButtonGo->Caption = "";
-				ButtonGo->Enabled = false;
-				break;
-			case 1:
-				LabelResult->Caption = "Вы можете открыть смену";
-				ButtonGo->Caption = "ОТКРЫТЬ СМЕНУ";
-				ButtonGo->Enabled = true;
-				break;
-			case 2:
-				LabelResult->Caption = "Вы можете закрыть смену";
-				ButtonGo->Caption = "ЗАКРЫТЬ СМЕНУ";
-				ButtonGo->Enabled = true;
-				break;
-			case 3:
-				LabelResult->Caption = "Сервер выдал не верный результат №3";
-				ButtonGo->Caption = "";
-				ButtonGo->Enabled = false;
-				break;
-			}
-		}
+		SelfTabel->Repaint();
 	}
 }
 // ---------------------------------------------------------------------------
@@ -159,9 +162,10 @@ connect:
 		goto connect;
 
 	PingTread->Start();
-	Label1->Caption = DayMessage;
-	SpeedButton1->Down = false;
+}
 
+bool __fastcall TSelfTabel::DayOrNight(){
+   return ( btnDay->Down ? false : true );
 }
 
 void __fastcall TSelfTabel::ButtonGoClick(TObject *Sender) {
@@ -169,17 +173,49 @@ void __fastcall TSelfTabel::ButtonGoClick(TObject *Sender) {
 	case 1: // открытие смены
 		Status("Запрос к серверу на открытие смены .....");
 		LabelResult->Caption =
-			SOAP()->CheckIn(dxStatusBar1->Panels->Items[2]->Text.ToInt(),
-			Shtrih->Text, SpeedButton1->Down);
+			SOAP()->CheckIn(aNum->Text.ToInt(),
+			Shtrih->Text, DayOrNight());
 		Status("Запрос к серверу завершен");
 		break; // конец: открытие смены
 	case 2: // закрытие смены
 		Status("Запрос к серверу на закрытие смены .....");
 		LabelResult->Caption =
-			SOAP()->CheckOut(dxStatusBar1->Panels->Items[2]->Text.ToInt(),
-			Shtrih->Text, SpeedButton1->Down);
+			SOAP()->CheckOut(aNum->Text.ToInt(),
+			Shtrih->Text, DayOrNight());
 		Status("Запрос к серверу завершен");
 		break; // конец: закрытие смены
 	}
 }
 // ---------------------------------------------------------------------------
+
+void __fastcall TSelfTabel::FormResize(TObject *Sender) {
+	int Width =	(grpOperationMode->Width - grpOperationMode->Padding->Right -
+		grpOperationMode->Padding->Left) / 3;
+	btnDay->Width = Width;
+	btnNight->Width = Width;
+}
+// ---------------------------------------------------------------------------
+void __fastcall TSelfTabel::btnDayClick(TObject *Sender)
+{
+	if(btnDay->Down){
+			Label1->Caption = DayMessage;GetAllowedActions();
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSelfTabel::btnAllDayClick(TObject *Sender)
+{
+	if(btnAllDay->Down){
+			Label1->Caption = AllDayMessage;GetAllowedActions();
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSelfTabel::btnNightClick(TObject *Sender)
+{
+	if(btnNight->Down){
+			Label1->Caption = NightMessage;GetAllowedActions();
+	}
+}
+//---------------------------------------------------------------------------
+

@@ -24,39 +24,13 @@ object SelfTabel: TSelfTabel
   WindowState = wsMaximized
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
+  OnResize = FormResize
   PixelsPerInch = 96
   TextHeight = 13
-  object SpeedButton1: TSpeedButton
-    AlignWithMargins = True
-    Left = 50
-    Top = 224
-    Width = 997
-    Height = 80
-    Cursor = crHandPoint
-    Margins.Left = 0
-    Margins.Top = 50
-    Margins.Right = 0
-    Margins.Bottom = 0
-    Align = alTop
-    AllowAllUp = True
-    GroupIndex = 1
-    Caption = '>> '#1053#1054#1063#1053#1040#1071'/'#1044#1053#1045#1042#1053#1040#1071' '#1057#1052#1045#1053#1040' <<'
-    Flat = True
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -53
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-    OnClick = SpeedButton1Click
-    ExplicitLeft = 20
-    ExplicitTop = 126
-    ExplicitWidth = 595
-  end
   object Label1: TLabel
     AlignWithMargins = True
     Left = 50
-    Top = 354
+    Top = 425
     Width = 997
     Height = 39
     Margins.Left = 0
@@ -65,19 +39,20 @@ object SelfTabel: TSelfTabel
     Margins.Bottom = 0
     Align = alTop
     Alignment = taCenter
-    Caption = 'Label1'
+    Caption = #1053#1059#1046#1053#1054' '#1042#1067#1041#1056#1040#1058#1068' '#1058#1048#1055' '#1057#1052#1045#1053#1067
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clGreen
     Font.Height = -32
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    ExplicitWidth = 106
+    ExplicitTop = 555
+    ExplicitWidth = 508
   end
   object LabelResult: TLabel
     AlignWithMargins = True
     Left = 50
-    Top = 593
+    Top = 664
     Width = 997
     Height = 25
     Margins.Left = 0
@@ -92,6 +67,7 @@ object SelfTabel: TSelfTabel
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
+    ExplicitTop = 794
     ExplicitWidth = 7
   end
   object dxStatusBar1: TdxStatusBar
@@ -183,14 +159,14 @@ object SelfTabel: TSelfTabel
     MaxLength = 13
     NumbersOnly = True
     ParentFont = False
-    TabOrder = 1
+    TabOrder = 2
     TextHint = #1064#1058#1056#1048#1061'-'#1050#1054#1044
     OnChange = ShtrihChange
   end
   object ButtonGo: TButton
     AlignWithMargins = True
     Left = 50
-    Top = 443
+    Top = 514
     Width = 997
     Height = 100
     Cursor = crHandPoint
@@ -209,8 +185,9 @@ object SelfTabel: TSelfTabel
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 3
     OnClick = ButtonGoClick
+    ExplicitTop = 644
   end
   object ButtonClose: TButton
     AlignWithMargins = True
@@ -234,9 +211,107 @@ object SelfTabel: TSelfTabel
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    TabOrder = 3
+    TabOrder = 4
     TabStop = False
     OnClick = ButtonCloseClick
+  end
+  object grpOperationMode: TGroupBox
+    AlignWithMargins = True
+    Left = 50
+    Top = 224
+    Width = 997
+    Height = 151
+    Margins.Left = 0
+    Margins.Top = 50
+    Margins.Right = 0
+    Margins.Bottom = 0
+    Align = alTop
+    Caption = #1042#1099#1073#1077#1088#1080#1090#1077' '#1088#1077#1078#1080#1084' '#1088#1072#1073#1086#1090#1099' ('#1090#1080#1087' '#1088#1072#1073#1086#1095#1077#1081' '#1089#1084#1077#1085#1099')'
+    Enabled = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Padding.Left = 20
+    Padding.Top = 20
+    Padding.Right = 20
+    Padding.Bottom = 20
+    ParentFont = False
+    TabOrder = 0
+    TabStop = True
+    ExplicitTop = 354
+    object btnNight: TSpeedButton
+      Left = 622
+      Top = 47
+      Width = 353
+      Height = 82
+      Cursor = crHandPoint
+      Hint = #1042#1099#1073#1088#1072#1090#1100' '#1088#1072#1073#1086#1090#1091' '#1074' '#1053#1054#1063#1053#1059#1070' '#1089#1084#1077#1085#1091
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 0
+      Margins.Bottom = 0
+      Align = alRight
+      AllowAllUp = True
+      Anchors = []
+      BiDiMode = bdLeftToRight
+      GroupIndex = 1
+      Caption = #1053#1054#1063#1053#1040#1071
+      ParentShowHint = False
+      ParentBiDiMode = False
+      ShowHint = True
+      Spacing = 0
+      OnClick = btnNightClick
+      ExplicitTop = 49
+    end
+    object btnDay: TSpeedButton
+      Left = 22
+      Top = 47
+      Width = 300
+      Height = 82
+      Cursor = crHandPoint
+      Hint = #1042#1099#1073#1088#1072#1090#1100' '#1088#1072#1073#1086#1090#1091' '#1074' '#1044#1053#1045#1042#1053#1059#1070' '#1089#1084#1077#1085#1091
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 0
+      Margins.Bottom = 0
+      Align = alLeft
+      AllowAllUp = True
+      Anchors = []
+      BiDiMode = bdLeftToRight
+      GroupIndex = 1
+      Caption = #1044#1053#1045#1042#1053#1040#1071
+      ParentShowHint = False
+      ParentBiDiMode = False
+      ShowHint = True
+      Spacing = 0
+      OnClick = btnDayClick
+    end
+    object btnAllDay: TSpeedButton
+      Left = 322
+      Top = 47
+      Width = 300
+      Height = 82
+      Cursor = crHandPoint
+      Hint = #1042#1099#1073#1088#1072#1090#1100' '#1088#1072#1073#1086#1090#1091' '#1074' '#1057#1059#1058#1054#1063#1053#1059#1070' '#1089#1084#1077#1085#1091
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 0
+      Margins.Bottom = 0
+      Align = alClient
+      AllowAllUp = True
+      Anchors = []
+      BiDiMode = bdLeftToRight
+      GroupIndex = 1
+      Caption = #1057#1059#1058#1054#1063#1053#1040#1071
+      ParentShowHint = False
+      ParentBiDiMode = False
+      ShowHint = True
+      Spacing = 0
+      OnClick = btnAllDayClick
+      ExplicitTop = 49
+    end
   end
   object Connection: TPgConnection
     LoginPrompt = False

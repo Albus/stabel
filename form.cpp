@@ -104,6 +104,7 @@ void __fastcall TSelfTabel::GetAllowedActions(){
 
 void __fastcall TSelfTabel::ShtrihChange(TObject *Sender) {
 	if (Shtrih->GetTextLen() == 13) {
+		Label1->Caption = "НУЖНО ВЫБРАТЬ ТИП СМЕНЫ";
 		grpOperationMode->Enabled = true;
 		Shtrih->Enabled = false;
 		SelfTabel->Repaint();

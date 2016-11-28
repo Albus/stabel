@@ -39,15 +39,14 @@ object SelfTabel: TSelfTabel
     Margins.Bottom = 0
     Align = alTop
     Alignment = taCenter
-    Caption = #1053#1059#1046#1053#1054' '#1042#1067#1041#1056#1040#1058#1068' '#1058#1048#1055' '#1057#1052#1045#1053#1067
+    Caption = #1053#1059#1046#1053#1054' '#1042#1042#1045#1057#1058#1048' '#1064#1058#1056#1048#1061'-'#1050#1054#1044
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clGreen
     Font.Height = -32
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
     ParentFont = False
-    ExplicitTop = 555
-    ExplicitWidth = 508
+    ExplicitWidth = 484
   end
   object LabelResult: TLabel
     AlignWithMargins = True

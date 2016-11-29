@@ -249,7 +249,6 @@ object SelfTabel: TSelfTabel
       Margins.Right = 0
       Margins.Bottom = 0
       Align = alRight
-      AllowAllUp = True
       Anchors = []
       BiDiMode = bdLeftToRight
       GroupIndex = 1
@@ -273,7 +272,6 @@ object SelfTabel: TSelfTabel
       Margins.Right = 0
       Margins.Bottom = 0
       Align = alLeft
-      AllowAllUp = True
       Anchors = []
       BiDiMode = bdLeftToRight
       GroupIndex = 1
@@ -296,7 +294,6 @@ object SelfTabel: TSelfTabel
       Margins.Right = 0
       Margins.Bottom = 0
       Align = alClient
-      AllowAllUp = True
       Anchors = []
       BiDiMode = bdLeftToRight
       GroupIndex = 1

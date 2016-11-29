@@ -70,7 +70,7 @@ _di_selftabelPortType _fastcall TSelfTabel::SOAP() {
 		"http://" + AP->Text + "/jex/ws/selftabel.1cws", NULL));
 }
 
-void __fastcall TSelfTabel::GetAllowedActions(){
+void __fastcall TSelfTabel::GetAllowedActions() {
 	if (AP->Text.Length() > 0) {
 		Status("Выполняем запрос к серверу .....");
 		AllowedAction = SOAP()->GetAllowedAction(aNum->Text.ToInt(),
@@ -110,9 +110,12 @@ void __fastcall TSelfTabel::ShtrihChange(TObject *Sender) {
 		SelfTabel->Repaint();
 	}
 }
-// ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
 void __fastcall TSelfTabel::FormCreate(TObject *Sender) {
+
+
+
 	PingTread->FreeOnTerminate = true;
 	TIniFile *lIni = NULL;
 	UnicodeString lIniFileName = ExtractFilePath(Application->ExeName) +
@@ -165,23 +168,21 @@ connect:
 	PingTread->Start();
 }
 
-bool __fastcall TSelfTabel::DayOrNight(){
-   return ( btnDay->Down ? false : true );
+bool __fastcall TSelfTabel::DayOrNight() {
+	return (btnDay->Down ? false : true);
 }
 
 void __fastcall TSelfTabel::ButtonGoClick(TObject *Sender) {
 	switch (AllowedAction) {
 	case 1: // открытие смены
 		Status("Запрос к серверу на открытие смены .....");
-		LabelResult->Caption =
-			SOAP()->CheckIn(aNum->Text.ToInt(),
-			Shtrih->Text, DayOrNight());
+		LabelResult->Caption = SOAP()->CheckIn(aNum->Text.ToInt(), Shtrih->Text,
+			DayOrNight());
 		Status("Запрос к серверу завершен");
 		break; // конец: открытие смены
 	case 2: // закрытие смены
 		Status("Запрос к серверу на закрытие смены .....");
-		LabelResult->Caption =
-			SOAP()->CheckOut(aNum->Text.ToInt(),
+		LabelResult->Caption = SOAP()->CheckOut(aNum->Text.ToInt(),
 			Shtrih->Text, DayOrNight());
 		Status("Запрос к серверу завершен");
 		break; // конец: закрытие смены
@@ -190,33 +191,33 @@ void __fastcall TSelfTabel::ButtonGoClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TSelfTabel::FormResize(TObject *Sender) {
-	int Width =	(grpOperationMode->Width - grpOperationMode->Padding->Right -
+	int Width = (grpOperationMode->Width - grpOperationMode->Padding->Right -
 		grpOperationMode->Padding->Left) / 3;
 	btnDay->Width = Width;
 	btnNight->Width = Width;
 }
+
 // ---------------------------------------------------------------------------
-void __fastcall TSelfTabel::btnDayClick(TObject *Sender)
-{
-	if(btnDay->Down){
-			Label1->Caption = DayMessage;GetAllowedActions();
+void __fastcall TSelfTabel::btnDayClick(TObject *Sender) {
+	if (btnDay->Down) {
+		Label1->Caption = DayMessage;
+		GetAllowedActions();
 	}
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void __fastcall TSelfTabel::btnAllDayClick(TObject *Sender)
-{
-	if(btnAllDay->Down){
-			Label1->Caption = AllDayMessage;GetAllowedActions();
+void __fastcall TSelfTabel::btnAllDayClick(TObject *Sender) {
+	if (btnAllDay->Down) {
+		Label1->Caption = AllDayMessage;
+		GetAllowedActions();
 	}
 }
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-void __fastcall TSelfTabel::btnNightClick(TObject *Sender)
-{
-	if(btnNight->Down){
-			Label1->Caption = NightMessage;GetAllowedActions();
+void __fastcall TSelfTabel::btnNightClick(TObject *Sender) {
+	if (btnNight->Down) {
+		Label1->Caption = NightMessage;
+		GetAllowedActions();
 	}
 }
-//---------------------------------------------------------------------------
-
+// ---------------------------------------------------------------------------

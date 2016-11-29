@@ -66,7 +66,6 @@ object SelfTabel: TSelfTabel
     Font.Name = 'Tahoma'
     Font.Style = []
     ParentFont = False
-    ExplicitTop = 794
     ExplicitWidth = 7
   end
   object dxStatusBar1: TdxStatusBar
@@ -186,7 +185,6 @@ object SelfTabel: TSelfTabel
     ParentFont = False
     TabOrder = 3
     OnClick = ButtonGoClick
-    ExplicitTop = 644
   end
   object ButtonClose: TButton
     AlignWithMargins = True
@@ -239,7 +237,6 @@ object SelfTabel: TSelfTabel
     ParentFont = False
     TabOrder = 0
     TabStop = True
-    ExplicitTop = 354
     object btnNight: TSpeedButton
       Left = 622
       Top = 47

@@ -59,6 +59,7 @@ private: // User declarations
 	_di_selftabelPortType _fastcall SOAP();
 	bool __fastcall DayOrNight();
 	void __fastcall GetAllowedActions();
+	void __fastcall AppDeactivate(TObject *Sender);
 
 public: // User declarations
 	__fastcall TSelfTabel(TComponent* Owner);

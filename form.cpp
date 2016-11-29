@@ -114,7 +114,7 @@ void __fastcall TSelfTabel::ShtrihChange(TObject *Sender) {
 // ---------------------------------------------------------------------------
 void __fastcall TSelfTabel::FormCreate(TObject *Sender) {
 
-
+    Application->OnDeactivate = &AppDeactivate;
 
 	PingTread->FreeOnTerminate = true;
 	TIniFile *lIni = NULL;
@@ -220,4 +220,13 @@ void __fastcall TSelfTabel::btnNightClick(TObject *Sender) {
 		GetAllowedActions();
 	}
 }
-// ---------------------------------------------------------------------------
+
+//---------------------------------------------------------------------------
+
+
+
+
+void __fastcall TSelfTabel::AppDeactivate(TObject *Sender)
+{
+  Application->Terminate();
+}

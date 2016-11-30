@@ -15,6 +15,8 @@
 #pragma link "MemDS"
 #pragma link "PgAccess"
 #pragma resource "*.dfm"
+#
+HANDLE hFont;
 
 TSelfTabel *SelfTabel;
 ping *PingTread = new ping(true);
@@ -114,7 +116,7 @@ void __fastcall TSelfTabel::ShtrihChange(TObject *Sender) {
 // ---------------------------------------------------------------------------
 void __fastcall TSelfTabel::FormCreate(TObject *Sender) {
 
-    Application->OnDeactivate = &AppDeactivate;
+	Application->OnDeactivate = &AppDeactivate;
 
 	PingTread->FreeOnTerminate = true;
 	TIniFile *lIni = NULL;
@@ -166,6 +168,10 @@ connect:
 		goto connect;
 
 	PingTread->Start();
+
+	Shtrih->Font->Name = "Comfortaa";
+	Shtrih->Font->Charset = RUSSIAN_CHARSET;
+
 }
 
 bool __fastcall TSelfTabel::DayOrNight() {
@@ -221,12 +227,8 @@ void __fastcall TSelfTabel::btnNightClick(TObject *Sender) {
 	}
 }
 
-//---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
-
-
-
-void __fastcall TSelfTabel::AppDeactivate(TObject *Sender)
-{
-  Application->Terminate();
+void __fastcall TSelfTabel::AppDeactivate(TObject *Sender) {
+	Application->Terminate();
 }

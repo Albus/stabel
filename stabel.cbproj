@@ -83,6 +83,18 @@
 			<ResFiles Include="stabel.res">
 				<BuildOrder>1</BuildOrder>
 			</ResFiles>
+			<RcItem Include="TTF\Comfortaa\Comfortaa-Bold.ttf">
+				<ResourceType>FONT</ResourceType>
+				<ResourceId>1</ResourceId>
+			</RcItem>
+			<RcItem Include="TTF\Comfortaa\Comfortaa-Light.ttf">
+				<ResourceType>FONT</ResourceType>
+				<ResourceId>2</ResourceId>
+			</RcItem>
+			<RcItem Include="TTF\Comfortaa\Comfortaa-Regular.ttf">
+				<ResourceType>FONT</ResourceType>
+				<ResourceId>3</ResourceId>
+			</RcItem>
 			<FormResources Include="form.dfm"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
@@ -112,7 +124,7 @@
 						<VersionInfo Name="MajorVer">1</VersionInfo>
 						<VersionInfo Name="MinorVer">1</VersionInfo>
 						<VersionInfo Name="Release">1</VersionInfo>
-						<VersionInfo Name="Build">15</VersionInfo>
+						<VersionInfo Name="Build">24</VersionInfo>
 						<VersionInfo Name="Debug">False</VersionInfo>
 						<VersionInfo Name="PreRelease">False</VersionInfo>
 						<VersionInfo Name="Special">False</VersionInfo>
@@ -124,7 +136,7 @@
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName">A.V.E</VersionInfoKeys>
 						<VersionInfoKeys Name="FileDescription"/>
-						<VersionInfoKeys Name="FileVersion">1.1.1.15</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.1.1.24</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName"/>
 						<VersionInfoKeys Name="LegalCopyright"/>
 						<VersionInfoKeys Name="LegalTrademarks"/>

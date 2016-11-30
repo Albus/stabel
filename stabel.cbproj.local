@@ -1,23 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.236,=C:\Users\root.VPS\Documents\RAD Studio\Projects\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.930,=C:\VCL\stabel\selftabel.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.881,C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.dfm=C:\Users\root.VPS\Documents\RAD Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.023,=C:\Users\root.VPS\Desktop\ArimaMadurai-ExtraLight.ttf</Transaction>
     <Transaction>1899.12.30 00:00:00.000.127,C:\VCL\stabel\selftabel.cpp=C:\VCL\stabel\soap.cpp</Transaction>
     <Transaction>1899.12.30 00:00:00.000.212,=C:\Users\root.VPS\Documents\RAD Studio\Projects\Project1.res</Transaction>
     <Transaction>1899.12.30 00:00:00.000.262,C:\VCL\stabel\form.h=C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.930,=C:\VCL\stabel\selftabel.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.881,C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.h=C:\Users\root.VPS\Documents\RAD Studio\Projects\Unit2.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.096,C:\VCL\stabel\stabel.cbproj=C:\VCL\stabel\Project.cbproj</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.881,C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.dfm=C:\Users\root.VPS\Documents\RAD Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.236,=C:\Users\root.VPS\Documents\RAD Studio\Projects\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.397,C:\Users\root.VPS\Desktop\ArimaMadurai-ExtraLight.ttf=</Transaction>
     <Transaction>1899.12.30 00:00:00.000.262,C:\VCL\stabel\form.dfm=C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.dfm</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.482,=C:\VCL\stabel\Unit1.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.358,C:\VCL\stabel\pgquery.cpp=</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.262,C:\VCL\stabel\form.cpp=C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.097,C:\VCL\stabel\Unit1.cpp=C:\VCL\stabel\pgquery.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.096,C:\VCL\stabel\stabel.cbproj=C:\VCL\stabel\Project.cbproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.881,C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.h=C:\Users\root.VPS\Documents\RAD Studio\Projects\Unit2.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.520,=C:\VCL\stabel\TTF\Comfortaa\Comfortaa-Regular.ttf</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.973,=C:\Users\root.VPS\Desktop\ArimaMadurai-ExtraLight.ttf</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.109,C:\Users\root.VPS\Desktop\ArimaMadurai-ExtraLight.ttf=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.504,=C:\VCL\stabel\TTF\Comfortaa\Comfortaa-Light.ttf</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.485,=C:\VCL\stabel\TTF\Comfortaa\Comfortaa-Bold.ttf</Transaction>
     <Transaction>1899.12.30 00:00:00.000.097,C:\VCL\stabel\Unit1.h=C:\VCL\stabel\pgquery.h</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.237,=C:\VCL\stabel\ping.cpp</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.127,C:\VCL\stabel\selftabel.h=C:\VCL\stabel\soap.h</Transaction>
     <Transaction>1899.12.30 00:00:00.000.327,C:\VCL\stabel\Project.cbproj=C:\Users\root.VPS\Documents\RAD Studio\Projects\Project1.cbproj</Transaction>
     <Transaction>1899.12.30 00:00:00.000.881,C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.cpp=C:\Users\root.VPS\Documents\RAD Studio\Projects\Unit2.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.358,C:\VCL\stabel\pgquery.cpp=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.262,C:\VCL\stabel\form.cpp=C:\Users\root.VPS\Documents\RAD Studio\Projects\stabel.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.482,=C:\VCL\stabel\Unit1.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.097,C:\VCL\stabel\Unit1.cpp=C:\VCL\stabel\pgquery.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.027,=C:\Users\root.VPS\Desktop\Marmelad-Regular.ttf</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.110,C:\Users\root.VPS\Desktop\Marmelad-Regular.ttf=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.237,=C:\VCL\stabel\ping.cpp</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.127,C:\VCL\stabel\selftabel.h=C:\VCL\stabel\soap.h</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.990,=C:\Users\root.VPS\Desktop\Marmelad-Regular.ttf</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.827,C:\Users\root.VPS\Desktop\Marmelad-Regular.ttf=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.910,=C:\Users\root.VPS\Desktop\Marmelad-Regular.ttf</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.481,C:\Users\root.VPS\Desktop\Marmelad-Regular.ttf=</Transaction>
   </Transactions>
 </BorlandProject>

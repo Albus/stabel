@@ -30,11 +30,11 @@ object SelfTabel: TSelfTabel
   object Label1: TLabel
     AlignWithMargins = True
     Left = 50
-    Top = 425
+    Top = 311
     Width = 997
-    Height = 37
+    Height = 29
     Margins.Left = 0
-    Margins.Top = 50
+    Margins.Top = 30
     Margins.Right = 0
     Margins.Bottom = 0
     Align = alTop
@@ -42,33 +42,35 @@ object SelfTabel: TSelfTabel
     Caption = #1053#1059#1046#1053#1054' '#1042#1042#1045#1057#1058#1048' '#1064#1058#1056#1048#1061'-'#1050#1054#1044
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clGreen
-    Font.Height = -32
+    Font.Height = -24
     Font.Name = 'Comfortaa'
     Font.Style = [fsBold]
     Font.Quality = fqProof
     ParentFont = False
-    ExplicitWidth = 456
+    ExplicitTop = 315
+    ExplicitWidth = 347
   end
   object LabelResult: TLabel
     AlignWithMargins = True
     Left = 50
-    Top = 662
+    Top = 475
     Width = 997
-    Height = 24
+    Height = 27
     Margins.Left = 0
-    Margins.Top = 50
+    Margins.Top = 30
     Margins.Right = 0
     Margins.Bottom = 0
     Align = alTop
     Alignment = taCenter
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
-    Font.Height = -21
+    Font.Height = -24
     Font.Name = 'Comfortaa'
     Font.Style = []
     Font.Quality = fqProof
     ParentFont = False
-    ExplicitWidth = 6
+    ExplicitTop = 502
+    ExplicitWidth = 7
   end
   object dxStatusBar1: TdxStatusBar
     Left = 50
@@ -169,7 +171,7 @@ object SelfTabel: TSelfTabel
     Left = 50
     Top = 50
     Width = 997
-    Height = 124
+    Height = 75
     Cursor = crHandPoint
     Margins.Left = 0
     Margins.Top = 0
@@ -183,7 +185,7 @@ object SelfTabel: TSelfTabel
     Color = clWhite
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
-    Font.Height = -96
+    Font.Height = -68
     Font.Name = 'Comfortaa'
     Font.Style = [fsBold]
     Font.Quality = fqProof
@@ -197,29 +199,29 @@ object SelfTabel: TSelfTabel
   object ButtonGo: TButton
     AlignWithMargins = True
     Left = 50
-    Top = 512
+    Top = 370
     Width = 997
-    Height = 100
+    Height = 75
     Cursor = crHandPoint
     Margins.Left = 0
-    Margins.Top = 50
+    Margins.Top = 30
     Margins.Right = 0
     Margins.Bottom = 0
     Align = alTop
-    Constraints.MaxHeight = 100
-    Constraints.MinHeight = 100
+    Constraints.MaxHeight = 75
+    Constraints.MinHeight = 75
     Default = True
     Enabled = False
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
-    Font.Height = -64
+    Font.Height = -42
     Font.Name = 'Comfortaa'
     Font.Style = [fsBold]
     Font.Quality = fqProof
     ParentFont = False
     TabOrder = 3
     OnClick = ButtonGoClick
-    ExplicitTop = 514
+    ExplicitTop = 374
   end
   object ButtonClose: TButton
     AlignWithMargins = True
@@ -229,7 +231,7 @@ object SelfTabel: TSelfTabel
     Height = 50
     Cursor = crHandPoint
     Margins.Left = 0
-    Margins.Top = 0
+    Margins.Top = 30
     Margins.Right = 0
     Margins.Bottom = 0
     Align = alBottom
@@ -239,7 +241,7 @@ object SelfTabel: TSelfTabel
     Constraints.MinHeight = 50
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
-    Font.Height = -32
+    Font.Height = -42
     Font.Name = 'Comfortaa'
     Font.Style = []
     Font.Quality = fqProof
@@ -251,11 +253,11 @@ object SelfTabel: TSelfTabel
   object grpOperationMode: TGroupBox
     AlignWithMargins = True
     Left = 50
-    Top = 224
+    Top = 155
     Width = 997
-    Height = 151
+    Height = 126
     Margins.Left = 0
-    Margins.Top = 50
+    Margins.Top = 30
     Margins.Right = 0
     Margins.Bottom = 0
     Align = alTop
@@ -263,7 +265,7 @@ object SelfTabel: TSelfTabel
     Enabled = False
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
-    Font.Height = -21
+    Font.Height = -24
     Font.Name = 'Comfortaa'
     Font.Style = []
     Font.Quality = fqProof
@@ -274,11 +276,12 @@ object SelfTabel: TSelfTabel
     ParentFont = False
     TabOrder = 0
     TabStop = True
+    ExplicitTop = 179
     object btnNight: TSpeedButton
       Left = 622
-      Top = 48
+      Top = 46
       Width = 353
-      Height = 81
+      Height = 58
       Cursor = crHandPoint
       Hint = #1042#1099#1073#1088#1072#1090#1100' '#1088#1072#1073#1086#1090#1091' '#1074' '#1053#1054#1063#1053#1059#1070' '#1089#1084#1077#1085#1091
       Margins.Left = 0
@@ -292,7 +295,7 @@ object SelfTabel: TSelfTabel
       Caption = #1053#1054#1063#1053#1040#1071
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
-      Font.Height = -21
+      Font.Height = -24
       Font.Name = 'Comfortaa'
       Font.Style = [fsBold]
       Font.Quality = fqProof
@@ -307,9 +310,9 @@ object SelfTabel: TSelfTabel
     end
     object btnDay: TSpeedButton
       Left = 22
-      Top = 48
+      Top = 46
       Width = 300
-      Height = 81
+      Height = 58
       Cursor = crHandPoint
       Hint = #1042#1099#1073#1088#1072#1090#1100' '#1088#1072#1073#1086#1090#1091' '#1074' '#1044#1053#1045#1042#1053#1059#1070' '#1089#1084#1077#1085#1091
       Margins.Left = 0
@@ -323,7 +326,7 @@ object SelfTabel: TSelfTabel
       Caption = #1044#1053#1045#1042#1053#1040#1071
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
-      Font.Height = -21
+      Font.Height = -24
       Font.Name = 'Comfortaa'
       Font.Style = [fsBold]
       Font.Quality = fqProof
@@ -338,9 +341,9 @@ object SelfTabel: TSelfTabel
     end
     object btnAllDay: TSpeedButton
       Left = 322
-      Top = 48
+      Top = 46
       Width = 300
-      Height = 81
+      Height = 58
       Cursor = crHandPoint
       Hint = #1042#1099#1073#1088#1072#1090#1100' '#1088#1072#1073#1086#1090#1091' '#1074' '#1057#1059#1058#1054#1063#1053#1059#1070' '#1089#1084#1077#1085#1091
       Margins.Left = 0
@@ -354,7 +357,7 @@ object SelfTabel: TSelfTabel
       Caption = #1057#1059#1058#1054#1063#1053#1040#1071
       Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
-      Font.Height = -21
+      Font.Height = -24
       Font.Name = 'Comfortaa'
       Font.Style = [fsBold]
       Font.Quality = fqProof

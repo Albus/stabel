@@ -7,8 +7,8 @@ object SelfTabel: TSelfTabel
   Margins.Bottom = 0
   BorderStyle = bsNone
   Caption = 'SelfTabel'
-  ClientHeight = 906
-  ClientWidth = 1097
+  ClientHeight = 628
+  ClientWidth = 804
   Color = clBtnFace
   Font.Charset = RUSSIAN_CHARSET
   Font.Color = clWindowText
@@ -31,7 +31,7 @@ object SelfTabel: TSelfTabel
     AlignWithMargins = True
     Left = 50
     Top = 311
-    Width = 997
+    Width = 704
     Height = 29
     Margins.Left = 0
     Margins.Top = 30
@@ -47,14 +47,13 @@ object SelfTabel: TSelfTabel
     Font.Style = [fsBold]
     Font.Quality = fqProof
     ParentFont = False
-    ExplicitTop = 315
     ExplicitWidth = 347
   end
   object LabelResult: TLabel
     AlignWithMargins = True
     Left = 50
     Top = 475
-    Width = 997
+    Width = 704
     Height = 27
     Margins.Left = 0
     Margins.Top = 30
@@ -69,13 +68,12 @@ object SelfTabel: TSelfTabel
     Font.Style = []
     Font.Quality = fqProof
     ParentFont = False
-    ExplicitTop = 502
     ExplicitWidth = 7
   end
   object dxStatusBar1: TdxStatusBar
     Left = 50
-    Top = 886
-    Width = 997
+    Top = 608
+    Width = 704
     Height = 20
     Panels = <
       item
@@ -165,12 +163,14 @@ object SelfTabel: TSelfTabel
     Font.Name = 'Comfortaa'
     Font.Style = [fsBold]
     Font.Quality = fqProof
+    ExplicitTop = 886
+    ExplicitWidth = 997
   end
   object Shtrih: TEdit
     AlignWithMargins = True
     Left = 50
     Top = 50
-    Width = 997
+    Width = 704
     Height = 75
     Cursor = crHandPoint
     Margins.Left = 0
@@ -195,12 +195,13 @@ object SelfTabel: TSelfTabel
     TabOrder = 2
     TextHint = #1064#1058#1056#1048#1061'-'#1050#1054#1044
     OnChange = ShtrihChange
+    ExplicitWidth = 997
   end
   object ButtonGo: TButton
     AlignWithMargins = True
     Left = 50
     Top = 370
-    Width = 997
+    Width = 704
     Height = 75
     Cursor = crHandPoint
     Margins.Left = 0
@@ -221,13 +222,13 @@ object SelfTabel: TSelfTabel
     ParentFont = False
     TabOrder = 3
     OnClick = ButtonGoClick
-    ExplicitTop = 374
+    ExplicitWidth = 997
   end
   object ButtonClose: TButton
     AlignWithMargins = True
     Left = 50
-    Top = 836
-    Width = 997
+    Top = 558
+    Width = 704
     Height = 50
     Cursor = crHandPoint
     Margins.Left = 0
@@ -241,7 +242,7 @@ object SelfTabel: TSelfTabel
     Constraints.MinHeight = 50
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
-    Font.Height = -42
+    Font.Height = -36
     Font.Name = 'Comfortaa'
     Font.Style = []
     Font.Quality = fqProof
@@ -249,12 +250,14 @@ object SelfTabel: TSelfTabel
     TabOrder = 4
     TabStop = False
     OnClick = ButtonCloseClick
+    ExplicitTop = 836
+    ExplicitWidth = 997
   end
   object grpOperationMode: TGroupBox
     AlignWithMargins = True
     Left = 50
     Top = 155
-    Width = 997
+    Width = 704
     Height = 126
     Margins.Left = 0
     Margins.Top = 30
@@ -276,12 +279,12 @@ object SelfTabel: TSelfTabel
     ParentFont = False
     TabOrder = 0
     TabStop = True
-    ExplicitTop = 179
+    ExplicitWidth = 997
     object btnNight: TSpeedButton
-      Left = 622
-      Top = 46
-      Width = 353
-      Height = 58
+      Left = 482
+      Top = 49
+      Width = 200
+      Height = 55
       Cursor = crHandPoint
       Hint = #1042#1099#1073#1088#1072#1090#1100' '#1088#1072#1073#1086#1090#1091' '#1074' '#1053#1054#1063#1053#1059#1070' '#1089#1084#1077#1085#1091
       Margins.Left = 0
@@ -305,14 +308,13 @@ object SelfTabel: TSelfTabel
       ShowHint = True
       Spacing = 0
       OnClick = btnNightClick
-      ExplicitTop = 49
-      ExplicitHeight = 82
+      ExplicitLeft = 519
     end
     object btnDay: TSpeedButton
       Left = 22
-      Top = 46
-      Width = 300
-      Height = 58
+      Top = 49
+      Width = 200
+      Height = 55
       Cursor = crHandPoint
       Hint = #1042#1099#1073#1088#1072#1090#1100' '#1088#1072#1073#1086#1090#1091' '#1074' '#1044#1053#1045#1042#1053#1059#1070' '#1089#1084#1077#1085#1091
       Margins.Left = 0
@@ -336,14 +338,12 @@ object SelfTabel: TSelfTabel
       ShowHint = True
       Spacing = 0
       OnClick = btnDayClick
-      ExplicitTop = 47
-      ExplicitHeight = 82
     end
     object btnAllDay: TSpeedButton
-      Left = 322
-      Top = 46
-      Width = 300
-      Height = 58
+      Left = 222
+      Top = 49
+      Width = 260
+      Height = 55
       Cursor = crHandPoint
       Hint = #1042#1099#1073#1088#1072#1090#1100' '#1088#1072#1073#1086#1090#1091' '#1074' '#1057#1059#1058#1054#1063#1053#1059#1070' '#1089#1084#1077#1085#1091
       Margins.Left = 0
@@ -367,7 +367,8 @@ object SelfTabel: TSelfTabel
       ShowHint = True
       Spacing = 0
       OnClick = btnAllDayClick
-      ExplicitTop = 49
+      ExplicitLeft = 322
+      ExplicitWidth = 300
       ExplicitHeight = 82
     end
   end

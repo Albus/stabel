@@ -85,7 +85,7 @@ void __fastcall ping::Execute() {
 
 void __fastcall ping::OnTerminate() {
 	try {
-		IdTCPClientVPN->Disconnect(false);
+		IdTCPClientVPN->Disconnect(true);
 	}
 	catch (...) {
 	}

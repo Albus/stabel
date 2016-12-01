@@ -250,8 +250,8 @@ void __fastcall TSelfTabel::Timer1000Timer(TObject *Sender)
 		t = ExitTimeOut;
 		LastTime = CurrTime;
 	}
-	byte a = (t*255)/ExitTimeOut;
-	ColorExitTimer = RGB(255-a,a,0);
+	byte a = (t*100)/ExitTimeOut;
+	ColorExitTimer = RGB(200-a,a,0);
 	ExitTimer->Text = String(t);
 	dxStatusBar1->Refresh();
 

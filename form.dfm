@@ -71,15 +71,21 @@ object SelfTabel: TSelfTabel
     ExplicitWidth = 7
   end
   object dxStatusBar1: TdxStatusBar
+    AlignWithMargins = True
     Left = 50
-    Top = 608
+    Top = 604
     Width = 704
     Height = 20
+    Margins.Left = 0
+    Margins.Top = 0
+    Margins.Right = 0
+    Margins.Bottom = 4
     Panels = <
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
         PanelStyle.Alignment = taCenter
         PanelStyle.Color = clBtnFace
+        PanelStyle.EllipsisType = dxetSmartPath
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clRed
         PanelStyle.Font.Height = -11
@@ -87,7 +93,6 @@ object SelfTabel: TSelfTabel
         PanelStyle.Font.Style = [fsBold]
         PanelStyle.Font.Quality = fqProof
         PanelStyle.ParentFont = False
-        Bevel = dxpbNone
         Fixed = False
         Text = 'VPN'
         Width = 50
@@ -95,6 +100,7 @@ object SelfTabel: TSelfTabel
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
         PanelStyle.Alignment = taCenter
+        PanelStyle.EllipsisType = dxetSmartPath
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clRed
         PanelStyle.Font.Height = -11
@@ -102,7 +108,6 @@ object SelfTabel: TSelfTabel
         PanelStyle.Font.Style = [fsBold]
         PanelStyle.Font.Quality = fqProof
         PanelStyle.ParentFont = False
-        Bevel = dxpbNone
         Fixed = False
         Text = 'WWW'
         Width = 50
@@ -110,6 +115,7 @@ object SelfTabel: TSelfTabel
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
         PanelStyle.Alignment = taCenter
+        PanelStyle.EllipsisType = dxetSmartPath
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clRed
         PanelStyle.Font.Height = -11
@@ -117,7 +123,6 @@ object SelfTabel: TSelfTabel
         PanelStyle.Font.Style = [fsBold]
         PanelStyle.Font.Quality = fqProof
         PanelStyle.ParentFont = False
-        Bevel = dxpbNone
         Fixed = False
         Text = '----'
         Width = 50
@@ -125,6 +130,7 @@ object SelfTabel: TSelfTabel
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
         PanelStyle.Alignment = taCenter
+        PanelStyle.EllipsisType = dxetSmartPath
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clWindowText
         PanelStyle.Font.Height = -11
@@ -132,7 +138,6 @@ object SelfTabel: TSelfTabel
         PanelStyle.Font.Style = [fsBold]
         PanelStyle.Font.Quality = fqProof
         PanelStyle.ParentFont = False
-        Bevel = dxpbNone
         Fixed = False
         MinWidth = 20
         Width = 50
@@ -140,6 +145,7 @@ object SelfTabel: TSelfTabel
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
         PanelStyle.Alignment = taCenter
+        PanelStyle.EllipsisType = dxetSmartPath
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clWindowText
         PanelStyle.Font.Height = -16
@@ -147,12 +153,13 @@ object SelfTabel: TSelfTabel
         PanelStyle.Font.Style = [fsBold]
         PanelStyle.Font.Quality = fqProof
         PanelStyle.ParentFont = False
-        Bevel = dxpbNone
-        MinWidth = 20
-        Width = 20
+        MinWidth = 26
+        Width = 26
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        PanelStyle.AutoHint = True
+        PanelStyle.EllipsisType = dxetSmartPath
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clWindowText
         PanelStyle.Font.Height = -11
@@ -160,7 +167,6 @@ object SelfTabel: TSelfTabel
         PanelStyle.Font.Style = [fsBold]
         PanelStyle.Font.Quality = fqProof
         PanelStyle.ParentFont = False
-        Bevel = dxpbNone
         Fixed = False
         Width = 200
       end>
@@ -234,7 +240,7 @@ object SelfTabel: TSelfTabel
   object ButtonClose: TButton
     AlignWithMargins = True
     Left = 50
-    Top = 558
+    Top = 554
     Width = 704
     Height = 50
     Cursor = crHandPoint

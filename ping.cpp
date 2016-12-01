@@ -14,6 +14,7 @@ TIdTCPClient *IdTCPClientWWW = new TIdTCPClient(NULL);
 TIdAntiFreeze *IdAntiFreezePing;
 
 void __fastcall ping::ChooseConnection() {
+
 	if (IdTCPClientVPN->Connected() || IdTCPClientWWW->Connected()) {
 		SelfTabel->AP->Text = IdTCPClientVPN->Connected() ?
 			IdTCPClientVPN->Host + ":" + IdTCPClientVPN->Port :
@@ -21,6 +22,7 @@ void __fastcall ping::ChooseConnection() {
 	}
 	else
 		SelfTabel->AP->Text = "";
+
 	SelfTabel->dxStatusBar1->Repaint();
 }
 
@@ -53,6 +55,9 @@ __fastcall ping::ping(bool CreateSuspended) : TThread(CreateSuspended) {
 
 // ---------------------------------------------------------------------------
 void __fastcall ping::Execute() {
+
+	//li->cbSize = sizeof(TLastInputInfo);
+
 	IdTCPClientVPN->OnConnected = &IdTCPClientConnected;
 	IdTCPClientWWW->OnConnected = &IdTCPClientConnected;
 	IdTCPClientVPN->OnDisconnected = &IdTCPClientDisConnected;
@@ -60,7 +65,6 @@ void __fastcall ping::Execute() {
 
 	this->FreeOnTerminate = true;
 	NameThreadForDebugging("ping");
-	// ---- Place thread code here ----
 	while (Terminated == false) {
 		if (!IdTCPClientVPN->Connected()) {
 			try {
@@ -69,7 +73,6 @@ void __fastcall ping::Execute() {
 			catch (...) {
 			}
 		}
-		// Synchronize(&UpdateCaption);
 		if (!IdTCPClientWWW->Connected()) {
 			try {
 				IdTCPClientWWW->Connect();
@@ -77,9 +80,8 @@ void __fastcall ping::Execute() {
 			catch (...) {
 			}
 		}
-		// http://94.228.240.244:8081/jex/ws/selftabel.1cws?wsdl
-		Sleep(1000);
-		// Synchronize(&UpdateCaption);
+
+		Sleep(800);
 	}
 }
 

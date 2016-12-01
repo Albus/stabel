@@ -87,6 +87,7 @@ object SelfTabel: TSelfTabel
         PanelStyle.Font.Style = [fsBold]
         PanelStyle.Font.Quality = fqProof
         PanelStyle.ParentFont = False
+        Bevel = dxpbNone
         Fixed = False
         Text = 'VPN'
         Width = 50
@@ -101,6 +102,7 @@ object SelfTabel: TSelfTabel
         PanelStyle.Font.Style = [fsBold]
         PanelStyle.Font.Quality = fqProof
         PanelStyle.ParentFont = False
+        Bevel = dxpbNone
         Fixed = False
         Text = 'WWW'
         Width = 50
@@ -115,6 +117,7 @@ object SelfTabel: TSelfTabel
         PanelStyle.Font.Style = [fsBold]
         PanelStyle.Font.Quality = fqProof
         PanelStyle.ParentFont = False
+        Bevel = dxpbNone
         Fixed = False
         Text = '----'
         Width = 50
@@ -129,21 +132,24 @@ object SelfTabel: TSelfTabel
         PanelStyle.Font.Style = [fsBold]
         PanelStyle.Font.Quality = fqProof
         PanelStyle.ParentFont = False
+        Bevel = dxpbNone
         Fixed = False
         MinWidth = 20
         Width = 50
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        PanelStyle.Alignment = taCenter
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clWindowText
-        PanelStyle.Font.Height = -11
+        PanelStyle.Font.Height = -16
         PanelStyle.Font.Name = 'Comfortaa'
         PanelStyle.Font.Style = [fsBold]
         PanelStyle.Font.Quality = fqProof
         PanelStyle.ParentFont = False
-        Fixed = False
-        Width = 50
+        Bevel = dxpbNone
+        MinWidth = 20
+        Width = 20
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
@@ -154,6 +160,7 @@ object SelfTabel: TSelfTabel
         PanelStyle.Font.Style = [fsBold]
         PanelStyle.Font.Quality = fqProof
         PanelStyle.ParentFont = False
+        Bevel = dxpbNone
         Fixed = False
         Width = 200
       end>
@@ -379,5 +386,10 @@ object SelfTabel: TSelfTabel
   object PgQuery: TPgQuery
     Connection = Connection
     Left = 944
+  end
+  object Timer1000: TTimer
+    OnTimer = Timer1000Timer
+    Left = 768
+    Top = 8
   end
 end

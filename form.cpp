@@ -4,6 +4,7 @@
 #include "form.h"
 #include "ping.h"
 
+
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "cxControls"
@@ -17,6 +18,8 @@
 #pragma resource "*.dfm"
 #
 HANDLE hFont;
+
+const short ExitTimeOut = 30;
 
 TSelfTabel *SelfTabel;
 ping *PingTread = new ping(true);
@@ -37,6 +40,8 @@ UnicodeString ConfigCanNotFindDBSectionMessage =
 
 UnicodeString PgCanNotConnect =
 	"НЕ МОГУ ПОДКЛЮЧИТЬСЯ К БАЗЕ ДАННЫХ\n\n(для выхода нажмите ESCAPE)";
+
+TLastInputInfo lpi;
 
 // ---------------------------------------------------------------------------
 __fastcall TSelfTabel::TSelfTabel(TComponent* Owner) : TForm(Owner) {
@@ -117,7 +122,7 @@ void __fastcall TSelfTabel::ShtrihChange(TObject *Sender) {
 void __fastcall TSelfTabel::FormCreate(TObject *Sender) {
 
 	Application->OnDeactivate = &AppDeactivate;
-
+    lpi.cbSize = sizeof(lpi);
 	PingTread->FreeOnTerminate = true;
 	TIniFile *lIni = NULL;
 	UnicodeString lIniFileName = ExtractFilePath(Application->ExeName) +
@@ -168,7 +173,7 @@ connect:
 		goto connect;
 
 	PingTread->Start();
-
+   	Timer1000->FreeOnRelease();
 	Shtrih->Font->Name = "Comfortaa";
 	Shtrih->Font->Charset = RUSSIAN_CHARSET;
 
@@ -230,5 +235,24 @@ void __fastcall TSelfTabel::btnNightClick(TObject *Sender) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TSelfTabel::AppDeactivate(TObject *Sender) {
-	Application->Terminate();
+	Close();
+}
+
+void __fastcall TSelfTabel::Timer1000Timer(TObject *Sender)
+{
+	static short t = ExitTimeOut;
+	static unsigned long LastTime = 0;
+	if(t==0)Close();
+	GetLastInputInfo(&lpi);
+	unsigned long CurrTime = lpi.dwTime;
+	if(LastTime==CurrTime)t--;
+	else {
+		t = ExitTimeOut;
+		LastTime = CurrTime;
+	}
+	byte a = (t*255)/ExitTimeOut;
+	ColorExitTimer = RGB(255-a,a,0);
+	ExitTimer->Text = String(t);
+	dxStatusBar1->Refresh();
+
 }

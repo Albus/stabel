@@ -43,6 +43,7 @@ __published: // IDE-managed Components
 	TSpeedButton *btnNight;
 	TSpeedButton *btnDay;
 	TSpeedButton *btnAllDay;
+	TTimer *Timer1000;
 
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall ButtonCloseClick(TObject *Sender);
@@ -53,6 +54,7 @@ __published: // IDE-managed Components
 	void __fastcall btnDayClick(TObject *Sender);
 	void __fastcall btnAllDayClick(TObject *Sender);
 	void __fastcall btnNightClick(TObject *Sender);
+	void __fastcall Timer1000Timer(TObject *Sender);
 
 private: // User declarations
 	UnicodeString __fastcall GetAppVer();
@@ -79,11 +81,13 @@ extern PACKAGE TSelfTabel *SelfTabel;
 #define WWW dxStatusBar1->Panels->Items[1]
 #define aNum dxStatusBar1->Panels->Items[2]
 #define AP dxStatusBar1->Panels->Items[3]
+#define ExitTimer dxStatusBar1->Panels->Items[4]
 #define StaText dxStatusBar1->Panels->Items[5]
 
 #define ColorVPN VPN->PanelStyle->Font->Color
 #define ColorWWW WWW->PanelStyle->Font->Color
 #define ColorANum aNum->PanelStyle->Font->Color
+#define ColorExitTimer ExitTimer->PanelStyle->Font->Color
 #define ColorAP WWW->PanelStyle->Font->Color
 
 #endif

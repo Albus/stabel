@@ -173,13 +173,17 @@ connect:
 
 	PingTread->Start();
 	Timer1000->FreeOnRelease();
-	Shtrih->Font->Name = "Comfortaa";
-	Shtrih->Font->Charset = RUSSIAN_CHARSET;
+	ProgressBarExitTimer->Min = 0;
+	ProgressBarExitTimer->Max = ExitTimeOut;
+	ProgressBarExitTimer->Position = ProgressBarExitTimer->Max;
 
 	char chBuffV[255];
 	char chLang[255];
-	GetVersionOfFile( AnsiString(Application->ExeName).c_str() ,chBuffV,255,chLang,255);
+	GetVersionOfFile(AnsiString(Application->ExeName).c_str(), chBuffV, 255,
+		chLang, 255);
 	VersionText->Text = String(chBuffV);
+
+	SetWindowTheme(SelfTabel->WindowHandle, L" ", NULL);
 }
 
 bool __fastcall TSelfTabel::DayOrNight() {
@@ -254,11 +258,8 @@ void __fastcall TSelfTabel::Timer1000Timer(TObject *Sender) {
 		t = ExitTimeOut;
 		LastTime = CurrTime;
 	}
-	byte a = (t * 100) / ExitTimeOut;
-	ColorExitTimer = RGB(200 - a, a, 0);
-	ExitTimer->Text = String(t);
-	dxStatusBar1->Refresh();
-
+	ProgressBarExitTimer->Position = t;
+	Application->ProcessMessages();
 }
 
 void __fastcall TSelfTabel::GetVersionOfFile(char * pszAppName, // file

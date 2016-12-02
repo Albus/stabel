@@ -177,6 +177,10 @@ object SelfTabel: TSelfTabel
         MinWidth = 80
         Text = 'Version'
         Width = 80
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarContainerPanelStyle'
+        PanelStyle.Container = dxStatusBar1Container7
       end>
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
@@ -184,6 +188,29 @@ object SelfTabel: TSelfTabel
     Font.Name = 'Comfortaa'
     Font.Style = [fsBold]
     Font.Quality = fqProof
+    object dxStatusBar1Container7: TdxStatusBarContainerControl
+      Left = 654
+      Top = 4
+      Width = 48
+      Height = 14
+      object ProgressBarExitTimer: TProgressBar
+        Left = 0
+        Top = 0
+        Width = 48
+        Height = 14
+        Align = alClient
+        DoubleBuffered = False
+        Max = 60
+        ParentDoubleBuffered = False
+        MarqueeInterval = 1
+        Step = 1
+        TabOrder = 0
+        ExplicitLeft = -102
+        ExplicitTop = -3
+        ExplicitWidth = 150
+        ExplicitHeight = 17
+      end
+    end
   end
   object Shtrih: TEdit
     AlignWithMargins = True

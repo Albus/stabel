@@ -26,6 +26,7 @@
 #include <DB.hpp>
 #include "soap.h"
 #include <ButtonGroup.hpp>
+#include <ComCtrls.hpp>
 
 // ---------------------------------------------------------------------------
 class TSelfTabel : public TForm {
@@ -44,6 +45,8 @@ __published: // IDE-managed Components
 	TSpeedButton *btnDay;
 	TSpeedButton *btnAllDay;
 	TTimer *Timer1000;
+	TdxStatusBarContainerControl *dxStatusBar1Container7;
+	TProgressBar *ProgressBarExitTimer;
 
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall ButtonCloseClick(TObject *Sender);
@@ -86,7 +89,6 @@ extern PACKAGE TSelfTabel *SelfTabel;
 #define WWW dxStatusBar1->Panels->Items[1]
 #define aNum dxStatusBar1->Panels->Items[2]
 #define AP dxStatusBar1->Panels->Items[3]
-#define ExitTimer dxStatusBar1->Panels->Items[4]
 #define StaText dxStatusBar1->Panels->Items[5]
 #define VersionText dxStatusBar1->Panels->Items[6]
 

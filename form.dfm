@@ -85,7 +85,6 @@ object SelfTabel: TSelfTabel
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
         PanelStyle.Alignment = taCenter
         PanelStyle.Color = clBtnFace
-        PanelStyle.EllipsisType = dxetSmartPath
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clRed
         PanelStyle.Font.Height = -11
@@ -100,7 +99,6 @@ object SelfTabel: TSelfTabel
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
         PanelStyle.Alignment = taCenter
-        PanelStyle.EllipsisType = dxetSmartPath
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clRed
         PanelStyle.Font.Height = -11
@@ -115,7 +113,6 @@ object SelfTabel: TSelfTabel
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
         PanelStyle.Alignment = taCenter
-        PanelStyle.EllipsisType = dxetSmartPath
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clRed
         PanelStyle.Font.Height = -11
@@ -130,7 +127,6 @@ object SelfTabel: TSelfTabel
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
         PanelStyle.Alignment = taCenter
-        PanelStyle.EllipsisType = dxetSmartPath
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clWindowText
         PanelStyle.Font.Height = -11
@@ -145,7 +141,6 @@ object SelfTabel: TSelfTabel
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
         PanelStyle.Alignment = taCenter
-        PanelStyle.EllipsisType = dxetSmartPath
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clWindowText
         PanelStyle.Font.Height = -16
@@ -158,8 +153,6 @@ object SelfTabel: TSelfTabel
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
-        PanelStyle.AutoHint = True
-        PanelStyle.EllipsisType = dxetSmartPath
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clWindowText
         PanelStyle.Font.Height = -11
@@ -169,6 +162,21 @@ object SelfTabel: TSelfTabel
         PanelStyle.ParentFont = False
         Fixed = False
         Width = 200
+      end
+      item
+        PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        PanelStyle.Alignment = taCenter
+        PanelStyle.AutoHint = True
+        PanelStyle.Font.Charset = RUSSIAN_CHARSET
+        PanelStyle.Font.Color = clWindowText
+        PanelStyle.Font.Height = -13
+        PanelStyle.Font.Name = 'Comfortaa'
+        PanelStyle.Font.Style = [fsBold]
+        PanelStyle.Font.Quality = fqProof
+        PanelStyle.ParentFont = False
+        MinWidth = 80
+        Text = 'Version'
+        Width = 80
       end>
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText

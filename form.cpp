@@ -4,7 +4,6 @@
 #include "form.h"
 #include "ping.h"
 
-
 // ---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma link "cxControls"
@@ -122,11 +121,11 @@ void __fastcall TSelfTabel::ShtrihChange(TObject *Sender) {
 void __fastcall TSelfTabel::FormCreate(TObject *Sender) {
 
 	Application->OnDeactivate = &AppDeactivate;
-    lpi.cbSize = sizeof(lpi);
+	lpi.cbSize = sizeof(lpi);
 	PingTread->FreeOnTerminate = true;
-	TIniFile *lIni = NULL;
 	UnicodeString lIniFileName = ExtractFilePath(Application->ExeName) +
 		"\\cfg\\aptrtlwh.cfg";
+	TIniFile *lIni = NULL;
 	if (!FileExists(lIniFileName, true)) {
 		FatalError(ConfigNotExistMessage);
 		return;
@@ -173,10 +172,14 @@ connect:
 		goto connect;
 
 	PingTread->Start();
-   	Timer1000->FreeOnRelease();
+	Timer1000->FreeOnRelease();
 	Shtrih->Font->Name = "Comfortaa";
 	Shtrih->Font->Charset = RUSSIAN_CHARSET;
 
+	char chBuffV[255];
+	char chLang[255];
+	GetVersionOfFile( AnsiString(Application->ExeName).c_str() ,chBuffV,255,chLang,255);
+	VersionText->Text = String(chBuffV);
 }
 
 bool __fastcall TSelfTabel::DayOrNight() {
@@ -238,21 +241,65 @@ void __fastcall TSelfTabel::AppDeactivate(TObject *Sender) {
 	Close();
 }
 
-void __fastcall TSelfTabel::Timer1000Timer(TObject *Sender)
-{
+void __fastcall TSelfTabel::Timer1000Timer(TObject *Sender) {
 	static short t = ExitTimeOut;
 	static unsigned long LastTime = 0;
-	if(t==0)Close();
+	if (t == 0)
+		Close();
 	GetLastInputInfo(&lpi);
 	unsigned long CurrTime = lpi.dwTime;
-	if(LastTime==CurrTime)t--;
+	if (LastTime == CurrTime)
+		t--;
 	else {
 		t = ExitTimeOut;
 		LastTime = CurrTime;
 	}
-	byte a = (t*100)/ExitTimeOut;
-	ColorExitTimer = RGB(200-a,a,0);
+	byte a = (t * 100) / ExitTimeOut;
+	ColorExitTimer = RGB(200 - a, a, 0);
 	ExitTimer->Text = String(t);
 	dxStatusBar1->Refresh();
 
+}
+
+void __fastcall TSelfTabel::GetVersionOfFile(char * pszAppName, // file
+	char * pszVerBuff, // receives version
+	int iVerBuffLen, // size of buffer
+	char * pszLangBuff, // receives language
+	int iLangBuffLen) // size of buffer
+{
+	DWORD dwScratch;
+	DWORD * pdwLangChar;
+	DWORD dwInfSize;
+	UINT uSize;
+	BYTE * pbyInfBuff;
+	char szVersion[32];
+	char szResource[80];
+	char * pszVersion = szVersion;
+
+	dwInfSize = GetFileVersionInfoSizeA(pszAppName, &dwScratch);
+
+	if (dwInfSize) {
+		pbyInfBuff = new BYTE[dwInfSize];
+		memset(pbyInfBuff, 0, dwInfSize);
+		if (pbyInfBuff) {
+			if (GetFileVersionInfoA(pszAppName, 0, dwInfSize, pbyInfBuff)) {
+				if (VerQueryValueA(pbyInfBuff, "\\VarFileInfo\\Translation",
+					(void**)(&pdwLangChar), &uSize)) {
+					if (VerLanguageNameA(LOWORD(*pdwLangChar), szResource,
+						sizeof(szResource))) {
+						strncpy(pszLangBuff, szResource, iLangBuffLen);
+					}
+					wsprintfA(szResource,
+						"\\StringFileInfo\\%04X%04X\\FileVersion",
+						LOWORD(*pdwLangChar), HIWORD(*pdwLangChar));
+
+					if (VerQueryValueA(pbyInfBuff, szResource,
+						(void**)(&pszVersion), &uSize)) {
+						strncpy(pszVerBuff, pszVersion, iVerBuffLen - 1);
+					}
+				}
+			}
+			delete[]pbyInfBuff;
+		}
+	}
 }

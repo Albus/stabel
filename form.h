@@ -62,9 +62,14 @@ private: // User declarations
 	bool __fastcall DayOrNight();
 	void __fastcall GetAllowedActions();
 	void __fastcall AppDeactivate(TObject *Sender);
+	void __fastcall GetVersionOfFile(char * pszAppName, // file
+		char * pszVerBuff, // receives version
+		int iVerBuffLen, // size of buffer
+		char * pszLangBuff, // receives language
+		int iLangBuffLen); // size of buffer;
 
-public: // User declarations
-	__fastcall TSelfTabel(TComponent* Owner);
+		public : // User declarations
+		__fastcall TSelfTabel(TComponent* Owner);
 
 	UnicodeString lIniFileName;
 
@@ -83,6 +88,7 @@ extern PACKAGE TSelfTabel *SelfTabel;
 #define AP dxStatusBar1->Panels->Items[3]
 #define ExitTimer dxStatusBar1->Panels->Items[4]
 #define StaText dxStatusBar1->Panels->Items[5]
+#define VersionText dxStatusBar1->Panels->Items[6]
 
 #define ColorVPN VPN->PanelStyle->Font->Color
 #define ColorWWW WWW->PanelStyle->Font->Color

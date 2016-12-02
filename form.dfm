@@ -153,6 +153,7 @@ object SelfTabel: TSelfTabel
       end
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
+        PanelStyle.AutoHint = True
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clWindowText
         PanelStyle.Font.Height = -11
@@ -166,7 +167,6 @@ object SelfTabel: TSelfTabel
       item
         PanelStyleClassName = 'TdxStatusBarTextPanelStyle'
         PanelStyle.Alignment = taCenter
-        PanelStyle.AutoHint = True
         PanelStyle.Font.Charset = RUSSIAN_CHARSET
         PanelStyle.Font.Color = clWindowText
         PanelStyle.Font.Height = -13
@@ -184,8 +184,6 @@ object SelfTabel: TSelfTabel
     Font.Name = 'Comfortaa'
     Font.Style = [fsBold]
     Font.Quality = fqProof
-    ExplicitTop = 886
-    ExplicitWidth = 997
   end
   object Shtrih: TEdit
     AlignWithMargins = True
@@ -216,7 +214,6 @@ object SelfTabel: TSelfTabel
     TabOrder = 2
     TextHint = #1064#1058#1056#1048#1061'-'#1050#1054#1044
     OnChange = ShtrihChange
-    ExplicitWidth = 997
   end
   object ButtonGo: TButton
     AlignWithMargins = True
@@ -243,7 +240,6 @@ object SelfTabel: TSelfTabel
     ParentFont = False
     TabOrder = 3
     OnClick = ButtonGoClick
-    ExplicitWidth = 997
   end
   object ButtonClose: TButton
     AlignWithMargins = True
@@ -271,8 +267,6 @@ object SelfTabel: TSelfTabel
     TabOrder = 4
     TabStop = False
     OnClick = ButtonCloseClick
-    ExplicitTop = 836
-    ExplicitWidth = 997
   end
   object grpOperationMode: TGroupBox
     AlignWithMargins = True
@@ -300,7 +294,6 @@ object SelfTabel: TSelfTabel
     ParentFont = False
     TabOrder = 0
     TabStop = True
-    ExplicitWidth = 997
     object btnNight: TSpeedButton
       Left = 482
       Top = 49

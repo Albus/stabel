@@ -205,10 +205,6 @@ object SelfTabel: TSelfTabel
         MarqueeInterval = 1
         Step = 1
         TabOrder = 0
-        ExplicitLeft = -102
-        ExplicitTop = -3
-        ExplicitWidth = 150
-        ExplicitHeight = 17
       end
     end
   end

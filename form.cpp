@@ -78,9 +78,22 @@ _di_selftabelPortType _fastcall TSelfTabel::SOAP() {
 
 void __fastcall TSelfTabel::GetAllowedActions() {
 	if (AP->Text.Length() > 0) {
+		unsigned short ret = 0;
 		Status("Выполняем запрос к серверу .....");
-		AllowedAction = SOAP()->GetAllowedAction(aNum->Text.ToInt(),
-			Shtrih->Text);
+
+	request:
+		ret++;
+		try {
+			AllowedAction = SOAP()->GetAllowedAction(aNum->Text.ToInt(),
+				Shtrih->Text);
+		}
+
+		catch (Exception& E) {
+			if (ret < 4) {
+				Status(E.Message);
+				goto request;
+			}
+		}
 		Status("Запрос к серверу завершен");
 		switch (AllowedAction) {
 		case 0:

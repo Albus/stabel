@@ -16,9 +16,9 @@ TIdAntiFreeze *IdAntiFreezePing;
 void __fastcall ping::ChooseConnection() {
 
 	if (IdTCPClientVPN->Connected() || IdTCPClientWWW->Connected()) {
-		SelfTabel->AP->Text = !IdTCPClientVPN->Connected() ?
-			IdTCPClientVPN->Host + ":" + IdTCPClientVPN->Port :
-			IdTCPClientWWW->Host + ":" + IdTCPClientWWW->Port;
+		SelfTabel->AP->Text = IdTCPClientWWW->Connected() ?
+			IdTCPClientWWW->Host + ":" + IdTCPClientWWW->Port :
+			IdTCPClientVPN->Host + ":" + IdTCPClientVPN->Port ;
 	}
 	else
 		SelfTabel->AP->Text = "";

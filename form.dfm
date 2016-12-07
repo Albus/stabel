@@ -422,4 +422,14 @@ object SelfTabel: TSelfTabel
     Left = 768
     Top = 8
   end
+  object ThreadUpdatePgTable: TIdThreadComponent
+    Active = True
+    Loop = False
+    Priority = tpNormal
+    StopMode = smTerminate
+    ThreadName = 'UpdatePgTable'
+    OnAfterRun = ThreadUpdatePgTableAfterRun
+    Left = 64848
+    Top = 64944
+  end
 end

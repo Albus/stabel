@@ -1,3 +1,4 @@
+CreateStorage RCDATA "CreateStorage.sql"
 1 FONT "TTF\\Comfortaa\\Comfortaa-Bold.ttf"
 2 FONT "TTF\\Comfortaa\\Comfortaa-Light.ttf"
 3 FONT "TTF\\Comfortaa\\Comfortaa-Regular.ttf"

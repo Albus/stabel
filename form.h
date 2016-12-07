@@ -27,6 +27,7 @@
 #include "soap.h"
 #include <ButtonGroup.hpp>
 #include <ComCtrls.hpp>
+#include <IdThreadComponent.hpp>
 
 // ---------------------------------------------------------------------------
 class TSelfTabel : public TForm {
@@ -47,6 +48,7 @@ __published: // IDE-managed Components
 	TTimer *Timer1000;
 	TdxStatusBarContainerControl *dxStatusBar1Container7;
 	TProgressBar *ProgressBarExitTimer;
+	TIdThreadComponent *ThreadUpdatePgTable;
 
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall ButtonCloseClick(TObject *Sender);
@@ -58,6 +60,7 @@ __published: // IDE-managed Components
 	void __fastcall btnAllDayClick(TObject *Sender);
 	void __fastcall btnNightClick(TObject *Sender);
 	void __fastcall Timer1000Timer(TObject *Sender);
+	void __fastcall ThreadUpdatePgTableAfterRun(TIdThreadComponent *Sender);
 
 private: // User declarations
 	UnicodeString __fastcall GetAppVer();

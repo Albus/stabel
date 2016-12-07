@@ -66,6 +66,11 @@
 			<TASM_Debugging>None</TASM_Debugging>
 		</PropertyGroup>
 		<ItemGroup>
+			<RcItem Include="CreateStorage.sql">
+				<ContainerId>ResourceItem</ContainerId>
+				<ResourceType>RCDATA</ResourceType>
+				<ResourceId>CreateStorage</ResourceId>
+			</RcItem>
 			<CppCompile Include="form.cpp">
 				<Form>SelfTabel</Form>
 				<DependentOn>form.h</DependentOn>

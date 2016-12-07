@@ -9,7 +9,6 @@
 
 // ---------------------------------------------------------------------------
 USEFORM("form.cpp", SelfTabel);
-//---------------------------------------------------------------------------
 WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int) {
 
 	WCHAR* MutexName = UnicodeString("SelfTabel").w_str();

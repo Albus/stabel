@@ -66,7 +66,7 @@
 			<TASM_Debugging>None</TASM_Debugging>
 		</PropertyGroup>
 		<ItemGroup>
-			<RcItem Include="CreateStorage.sql">
+			<RcItem Include="SQL\CreateStorage.sql">
 				<ContainerId>ResourceItem</ContainerId>
 				<ResourceType>RCDATA</ResourceType>
 				<ResourceId>CreateStorage</ResourceId>
@@ -76,7 +76,7 @@
 				<DependentOn>form.h</DependentOn>
 				<BuildOrder>2</BuildOrder>
 			</CppCompile>
-			<RcItem Include="GetAptNum.sql">
+			<RcItem Include="SQL\GetAptNum.sql">
 				<ContainerId>ResourceItem</ContainerId>
 				<ResourceType>RCDATA</ResourceType>
 				<ResourceId>GetAptNum</ResourceId>

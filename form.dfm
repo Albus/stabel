@@ -423,7 +423,7 @@ object SelfTabel: TSelfTabel
     Top = 8
   end
   object ThreadUpdatePgTable: TIdThreadComponent
-    Active = True
+    Active = False
     Loop = False
     Priority = tpNormal
     StopMode = smTerminate

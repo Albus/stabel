@@ -7,8 +7,10 @@
 #include <tchar.h>
 #include "memory"
 
+
 // ---------------------------------------------------------------------------
 USEFORM("form.cpp", SelfTabel);
+//---------------------------------------------------------------------------
 WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int) {
 
 	WCHAR* MutexName = UnicodeString("SelfTabel").w_str();
@@ -40,8 +42,6 @@ WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int) {
 			&dwFontsInstalled);
 		AddFontMemResourceEx(ResourceFont3->Memory, ResourceFont3->Size, 0,
 			&dwFontsInstalled);
-
-
 
 	}
 	catch (...) {

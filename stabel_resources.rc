@@ -1,5 +1,5 @@
-CreateStorage RCDATA "CreateStorage.sql"
-GetAptNum RCDATA "GetAptNum.sql"
+CreateStorage RCDATA "SQL\\CreateStorage.sql"
+GetAptNum RCDATA "SQL\\GetAptNum.sql"
 1 FONT "TTF\\Comfortaa\\Comfortaa-Bold.ttf"
 2 FONT "TTF\\Comfortaa\\Comfortaa-Light.ttf"
 3 FONT "TTF\\Comfortaa\\Comfortaa-Regular.ttf"

@@ -49,7 +49,9 @@ __fastcall TSelfTabel::TSelfTabel(TComponent* Owner) : TForm(Owner) {
 // ---------------------------------------------------------------------------
 
 void __fastcall TSelfTabel::FormCloseQuery(TObject *Sender, bool &CanClose) {
+	Status("Закрываю потоки ...");
 	PingTread->Terminate();
+	ThreadUpdatePgTable->TerminateAndWaitFor();
 }
 
 // ---------------------------------------------------------------------------
@@ -167,6 +169,7 @@ connect:
 	}
 	if (Connection->Connected) // Сервер аптеки достуен
 	{
+		ThreadUpdatePgTable->Start();
 		PgQuery->Connection = Connection;
 		PgQuery->SQL->LoadFromStream(new TResourceStream((int)HInstance,
 			"GetAptNum", RT_RCDATA));
@@ -324,9 +327,11 @@ void __fastcall TSelfTabel::GetVersionOfFile(char * pszAppName, // file
 void __fastcall TSelfTabel::ThreadUpdatePgTableAfterRun
 	(TIdThreadComponent *Sender) {
 	TPgQuery* query = new TPgQuery(Sender);
-	query->Connection = (TPgConnection *) Connection;
+	query->Connection->AssignConnect(Connection);
+	query->Connection->Ping();
 	query->SQL->LoadFromStream(new TResourceStream((int)HInstance,
 		"CreateStorage", RT_RCDATA));
+	query->Execute();
 	query->Close();
 	query->Free();
 }
